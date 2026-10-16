@@ -1,0 +1,30 @@
+{
+  "name": "observatory",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "start": "node --experimental-strip-types server/main.ts",
+    "demo": "OBSERVATORY_MODE=demo node server/main.ts",
+    "test": "node --experimental-strip-types tests/run.ts",
+    "typecheck": "tsc --noEmit",
+    "release:prepare": "node scripts/prepare-release.mjs"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.0.0"
+  },
+  "license": "MIT"
+}

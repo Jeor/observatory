@@ -1,0 +1,21 @@
+name: Verify
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm test && npm run build
+      - run: node scripts/smoke.mjs
+      - run: npm audit --audit-level=high
+      - run: docker compose config --quiet
+      - run: docker build -t observatory:audit .
+      - run: sh scripts/container-smoke.sh observatory:audit
+      - run: node scripts/prepare-release.mjs /tmp/observatory-release

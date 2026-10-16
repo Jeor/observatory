@@ -1,0 +1,38 @@
+# Standalone alternative: docker compose --env-file .env -f examples/compose.traefik.yaml up --build -d
+# Requires existing Traefik with HTTPS websecure entrypoint and letsencrypt resolver.
+services:
+  observatory:
+    image: ${OBSERVATORY_IMAGE:-observatory:local}
+    build: ..
+    restart: unless-stopped
+    environment:
+      OBSERVATORY_MODE: live
+      OBSERVATORY_TIMEZONE: ${OBSERVATORY_TIMEZONE:-UTC}
+      OBSERVATORY_AUTH_FILE: /run/secrets/dashboard-login.json
+      ALLOWED_HOSTS: ${OBSERVATORY_DOMAIN:?Set your dashboard domain}
+      AIOM_ORIGIN: ${AIOM_ORIGIN:-}
+      AIOM_ADMIN_KEY_FILE: /run/secrets/aiom-key
+      AIOM_CONFIG_ID_FILE: /run/secrets/aiom-config
+      STREAMS_ORIGIN: ${STREAMS_ORIGIN:-}
+      STREAMS_CREDENTIALS_FILE: /run/secrets/streams-login.json
+    volumes:
+      - observatory-data:/app/data
+      - ../.secrets:/run/secrets:ro
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    networks: [proxy]
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: ${PROXY_NETWORK:-proxy}
+      traefik.http.routers.observatory.rule: Host(`${OBSERVATORY_DOMAIN:?Set your dashboard domain}`)
+      traefik.http.routers.observatory.entrypoints: websecure
+      traefik.http.routers.observatory.tls.certresolver: letsencrypt
+      traefik.http.services.observatory.loadbalancer.server.port: "8080"
+networks:
+  proxy:
+    external: true
+    name: ${PROXY_NETWORK:-proxy}
+volumes:
+  observatory-data:

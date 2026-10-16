@@ -1,0 +1,2 @@
+import {useGrouping} from '../useGrouping';
+export function GroupingControl(){const [minutes,setMinutes]=useGrouping();return <label className="grouping-control">Combine repeats<select aria-label="Combine repeated records across viewing pages" value={minutes} onChange={e=>setMinutes(Number(e.target.value))}><option value={0}>Off</option><option value={30}>Within 30 minutes</option><option value={120}>Within 2 hours</option><option value={360}>Within 6 hours</option><option value={1440}>Within 24 hours</option></select></label>;}

@@ -1,0 +1,26 @@
+services:
+  observatory:
+    image: ${OBSERVATORY_IMAGE:-observatory:local}
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${OBSERVATORY_PORT:-8080}:8080"
+    environment:
+      OBSERVATORY_MODE: ${OBSERVATORY_MODE:-demo}
+      OBSERVATORY_TIMEZONE: ${OBSERVATORY_TIMEZONE:-UTC}
+      OBSERVATORY_AUTH_FILE: ${OBSERVATORY_AUTH_FILE:-}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:-localhost,127.0.0.1}
+      AIOM_ORIGIN: ${AIOM_ORIGIN:-}
+      AIOM_ADMIN_KEY_FILE: /run/secrets/aiom-key
+      AIOM_CONFIG_ID_FILE: /run/secrets/aiom-config
+      STREAMS_ORIGIN: ${STREAMS_ORIGIN:-}
+      STREAMS_CREDENTIALS_FILE: /run/secrets/streams-login.json
+    volumes:
+      - observatory-data:/app/data
+      - ./.secrets:/run/secrets:ro
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
+volumes:
+  observatory-data:

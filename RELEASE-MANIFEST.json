@@ -1,0 +1,28 @@
+{
+  "files": [
+    "web",
+    "shared",
+    "server",
+    "public",
+    "tests",
+    ".github",
+    "examples",
+    "docs/public",
+    "scripts/prepare-release.mjs",
+    "scripts/container-smoke.sh",
+    "scripts/smoke.mjs",
+    "package.json",
+    "package-lock.json",
+    "tsconfig.json",
+    "vite.config.ts",
+    "index.html",
+    "Dockerfile",
+    "compose.yaml",
+    ".gitignore",
+    ".dockerignore",
+    ".env.example",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md"
+  ]
+}

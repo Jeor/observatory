@@ -1,0 +1,16 @@
+/node_modules/
+/dist/
+/data/
+/.secrets/
+.env
+.env.*
+!.env.example
+*.sqlite*
+*.log
+/design/
+/.impeccable/
+/docs/*
+!/docs/public/
+/scripts/inspect.ts
+/scripts/verify-live.ts
+/releases/

@@ -1,0 +1,4 @@
+import {useEffect,useState} from 'react';
+const read=()=>{try{const n=Number(localStorage.getItem('observatory.journalWindow')??120);return [0,30,120,360,1440].includes(n)?n:120;}catch{return 120;}};
+export function useGrouping():[number,(n:number)=>void]{const [value,setValue]=useState(read);useEffect(()=>{const update=()=>setValue(read());window.addEventListener('observatory-grouping',update);window.addEventListener('storage',update);return()=>{window.removeEventListener('observatory-grouping',update);window.removeEventListener('storage',update);};},[]);return [value,n=>{setValue(n);try{localStorage.setItem('observatory.journalWindow',String(n));}catch{}window.dispatchEvent(new Event('observatory-grouping'));}];}
+export const groupingLabel=(minutes:number)=>minutes===0?'Grouping off':minutes<60?`${minutes}-minute grouping`:`${minutes/60}-hour grouping`;

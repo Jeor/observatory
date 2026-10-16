@@ -1,0 +1,9 @@
+import {timeZone} from '../../shared/timezone';
+import type {DashboardData} from '../../shared/contracts';
+export function Connections({data}:{data:DashboardData}){
+ return <section className="connections"><h1>Connections</h1><p className="subheading">Your observatory’s data sources.</p><div className="connection-grid">{data.sources.map((s,i)=>{
+ const records=i?data.traffic:data.plays;
+ const age=s.lastSuccess?Math.max(0,Math.round((data.now-s.lastSuccess)/1000)):null;
+ return <article key={s.name}><div className="section-heading"><h2>{s.name}</h2><span className={`status ${s.state}`}>{s.state}</span></div><p>{i?'Provider downloads':'Viewing activity'}</p><div className="source-freshness">{age===null?'Not yet connected':age<60?`Updated ${age}s ago`:`Updated ${Math.floor(age/60)}m ago`}</div><div className="source-metrics"><div><strong>{records.length}</strong><span>{i?'traffic buckets':'saved records'}</span></div><div><strong>{i?'365':'400'}<small> days</small></strong><span>retention</span></div></div><details><summary>Connection details</summary><dl><dt>Last successful collection</dt><dd>{s.lastSuccess?new Date(s.lastSuccess).toLocaleString('en-US',{timeZone:timeZone()})+' '+timeZone():'Not available'}</dd><dt>Earliest retained record</dt><dd>{records.length?new Date(Math.min(...records.map(r=>r.at))).toLocaleDateString('en-US',{timeZone:timeZone()}):'Not available'}</dd><dt>Polling interval</dt><dd>{i?'60':'15'} seconds</dd><dt>Status</dt><dd>{s.message}</dd></dl></details>{s.state!=='connected'&&<p className="source-error">{s.message}</p>}</article>;
+ })}</div><div className="connection-note"><details><summary>How to connect your services</summary><p>Supply your credentials using the local README’s secret-file instructions, then restart in live mode. Credentials stay on the server.</p></details></div></section>;
+}
