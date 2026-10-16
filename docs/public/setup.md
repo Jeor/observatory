@@ -1,42 +1,17 @@
 # Connect your services
 
-## 1. Edit `.env`
+1. Open Observatory’s WebUI. Copy the **setup code** from the container log.
+2. Create your owner login and choose your time zone. Passwords can be any non-empty length.
+3. Enable either or both services, enter the details below, and click **Test connection**.
+4. Save, then sign into the dashboard with your Observatory login.
 
-```dotenv
-OBSERVATORY_MODE=live
-OBSERVATORY_TIMEZONE=Europe/London
-OBSERVATORY_AUTH_FILE=/run/secrets/dashboard-login.json
-AIOM_ORIGIN=http://your-aiometadata:3232
-STREAMS_ORIGIN=http://your-aiostreams:3004
-```
-
-Use your own time zone and server addresses. Addresses must be reachable from Docker; `localhost` inside a container refers to that container. Leave out either service you don't use.
-
-## 2. Add credential files
-
-Create these files inside `.secrets/`:
-
-| File | Contents |
+| Service | What you need |
 |---|---|
-| `dashboard-login.json` | `{"username":"owner","password":"YOUR-UNIQUE-PASSWORD"}` |
-| `aiom-key` | Your AIOMetadata admin key |
-| `aiom-config` | Your AIOMetadata configuration UUID |
-| `streams-login.json` | `{"username":"YOUR-USERNAME","password":"YOUR-PASSWORD"}` for the AIOStreams admin account |
+| AIOMetadata | Server address, dashboard admin key, and saved configuration UUID. Enable its Jellyfin API. |
+| AIOStreams | Server address and dashboard admin username/password. Its Usenet statistics API must be available. |
 
-Choose a dashboard password of at least 16 characters. Only create the service files you need; keep keys and UUIDs on a single line.
+Use an address reachable from inside Docker. `localhost` refers to the Observatory container, not your other services.
 
-The container runs as UID 1000. On Linux, make the secrets readable by that user only:
+You can skip a service and add it later in **Connections → Manage connections**. Leave a saved key or password blank to keep it. Changing to a different source account requires a separate data volume to keep histories apart.
 
-```sh
-sudo chown -R 1000:1000 .secrets
-sudo chmod 700 .secrets
-sudo find .secrets -type f -exec chmod 600 {} \;
-```
-
-## 3. Restart
-
-```sh
-docker compose up -d --no-build
-```
-
-Sign in with your dashboard login, then check **Connections**. See [hosting](hosting.md) for remote access or Unraid, and [help](help.md) if a connection fails.
+Credentials are stored privately in `/config/settings.json` and are never returned to the browser. Existing environment and secret-file configurations remain supported until you save settings through the wizard.

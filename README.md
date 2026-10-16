@@ -1,44 +1,21 @@
 # Observatory
 
-A self-hosted dashboard for your AIOMetadata viewing history and AIOStreams downloads. Explore your journal, genre constellation, monthly reviews, and traffic charts.
+A private viewing journal and traffic dashboard for **AIOMetadata** and **AIOStreams**. Explore your history, genre constellation, monthly reviews, and provider usage.
 
-![Observatory demo](docs/public/demo.png)
+## Install
 
-## Quick start
+**Unraid:** Add the [Observatory template](unraid/observatory.xml) to your user templates, choose an unused port, and install. Open **WebUI** from the container menu.
 
-Install Docker with Compose, then run:
-
-```sh
-git clone https://github.com/Jeor/observatory.git
-cd observatory
-cp .env.example .env
-mkdir -p .secrets
-docker compose pull
-docker compose up -d --no-build
-```
-
-Open **http://localhost:8080** on the computer running Docker. It starts with demo data—no API keys needed. Images support AMD64 and ARM64.
-
-## Use your own data
-
-Follow the short [connection guide](docs/public/setup.md) to add your service addresses and credentials.
-
-Everyone with dashboard access can see all connected profiles. Use HTTPS for remote access.
-
-## Update
+**Docker Compose:** Download [compose.yaml](compose.yaml), then run:
 
 ```sh
-docker compose pull
-docker compose up -d --no-build
+docker compose up -d
 ```
 
-If you pinned a version in `.env`, change it to the desired release first. Your data stays in the Docker volume. Stop the container before backing up that volume.
+Open **http://localhost:18085**. Copy the **setup code** from `docker compose logs observatory`, create your login, and connect your services. Any non-empty password is accepted. You can connect either service and add the other later under **Connections → Manage connections**.
 
-## More
+Settings and history persist in the configuration volume. Keep it private and backed up. For remote access, use HTTPS.
 
-- [Unraid and Traefik](docs/public/hosting.md)
-- [Data coverage and troubleshooting](docs/public/help.md)
-- [Build from source](docs/public/development.md)
-- [Releases](https://github.com/Jeor/observatory/releases)
+[Unraid & hosting](docs/public/hosting.md) · [Connection setup](docs/public/setup.md) · [Help](docs/public/help.md) · [Development](docs/public/development.md)
 
 Licensed under [GPLv3](LICENSE).

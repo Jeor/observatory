@@ -7,6 +7,7 @@
     "tests",
     ".github",
     "examples",
+    "unraid",
     "docs/public",
     "scripts/prepare-release.mjs",
     "scripts/container-smoke.sh",

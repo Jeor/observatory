@@ -1,3 +1,4 @@
+import {loadSettings} from './settings.ts';
 import {validLogin,type Login} from './auth.ts';
 import {readFileSync} from 'node:fs';
 export interface Config {mode:'demo'|'live';port:number;host:string;dataDir:string;timeZone:string;login?:Login;streamsScope?:string;aiom?:{url:string;key:string};streams?:{url:string;cookie?:string;credentials?:{username:string;password:string}}}
@@ -5,10 +6,12 @@ function jsonSecret(path:string):any {try{return JSON.parse(readFileSync(path,'u
 function secret(path:string){const text=readFileSync(path,'utf8').trim();if(!text||/[\r\n]/.test(text))throw Error('Secret file is empty or contains multiple lines');return text;}
 function endpoint(raw:string,path:string){const u=new URL(raw);if(!['http:','https:'].includes(u.protocol)||u.username||u.password||u.search||u.hash||u.pathname!=='/')throw Error('Configure an origin without credentials or path');return new URL(path,u).href;}
 export function readConfig():Config {
+ const saved=loadSettings();
  const mode=process.env.OBSERVATORY_MODE||'live';if(mode!=='live'&&mode!=='demo')throw Error('Invalid mode');
  const c:Config={mode,port:Number(process.env.PORT||8080),host:process.env.HOST||'127.0.0.1',dataDir:process.env.DATA_DIR||'./data',timeZone:process.env.OBSERVATORY_TIMEZONE||'America/New_York'};
+ if(saved&&mode==='live'){c.login=saved.login;c.timeZone=saved.timeZone;if(saved.aiom)c.aiom={url:endpoint(saved.aiom.origin,`/api/dashboard/jellyfin/${saved.aiom.configId}`),key:saved.aiom.key};if(saved.streams)c.streams={url:endpoint(saved.streams.origin,'/api/v1/dashboard/usenet/stats?window=7d'),credentials:{username:saved.streams.username,password:saved.streams.password}};return c;}
  new Intl.DateTimeFormat('en',{timeZone:c.timeZone}).format(0);
- if(process.env.OBSERVATORY_AUTH_FILE){const login=jsonSecret(process.env.OBSERVATORY_AUTH_FILE);if(!validLogin(login))throw Error('Dashboard login requires a username and password of at least 16 characters');c.login=login;}
+ if(process.env.OBSERVATORY_AUTH_FILE){const login=jsonSecret(process.env.OBSERVATORY_AUTH_FILE);if(!validLogin(login))throw Error('Dashboard login requires a username and password of at least one character');c.login=login;}
  if(mode==='live'&&!['127.0.0.1','::1','localhost'].includes(c.host)&&!c.login)throw Error('Live network access requires OBSERVATORY_AUTH_FILE; use HTTPS at your reverse proxy');
  c.streamsScope=process.env.STREAMS_ACCOUNT_SCOPE;
  if(!Number.isInteger(c.port)||c.port<1||c.port>65535)throw Error('Invalid port');

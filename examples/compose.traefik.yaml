@@ -1,23 +1,16 @@
-# Standalone alternative: docker compose --env-file .env -f examples/compose.traefik.yaml up --build -d
+# Standalone alternative: docker compose --env-file .env -f examples/compose.traefik.yaml up -d
 # Requires existing Traefik with HTTPS websecure entrypoint and letsencrypt resolver.
 services:
   observatory:
     image: ${OBSERVATORY_IMAGE:-ghcr.io/jeor/observatory:latest}
-    build: ..
     restart: unless-stopped
     environment:
       OBSERVATORY_MODE: live
-      OBSERVATORY_TIMEZONE: ${OBSERVATORY_TIMEZONE:-UTC}
-      OBSERVATORY_AUTH_FILE: /run/secrets/dashboard-login.json
+      CONFIG_DIR: /config
+      DATA_DIR: /config/data
       ALLOWED_HOSTS: ${OBSERVATORY_DOMAIN:?Set your dashboard domain}
-      AIOM_ORIGIN: ${AIOM_ORIGIN:-}
-      AIOM_ADMIN_KEY_FILE: /run/secrets/aiom-key
-      AIOM_CONFIG_ID_FILE: /run/secrets/aiom-config
-      STREAMS_ORIGIN: ${STREAMS_ORIGIN:-}
-      STREAMS_CREDENTIALS_FILE: /run/secrets/streams-login.json
     volumes:
-      - observatory-data:/app/data
-      - ../.secrets:/run/secrets:ro
+      - observatory-config:/config
     read_only: true
     tmpfs: [/tmp]
     cap_drop: [ALL]
@@ -35,4 +28,4 @@ networks:
     external: true
     name: ${PROXY_NETWORK:-proxy}
 volumes:
-  observatory-data:
+  observatory-config:

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Observatory</Name>
+  <Repository>ghcr.io/jeor/observatory:latest</Repository>
+  <Registry>https://ghcr.io/jeor/observatory</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/Jeor/observatory/issues</Support>
+  <Project>https://github.com/Jeor/observatory</Project>
+  <Overview>A private viewing journal and traffic dashboard for AIOMetadata and AIOStreams. Install, open the WebUI, and enter the setup code from the container log. Connect either service in the setup wizard. No SSH or credential files needed.</Overview>
+  <Category>MediaApp:Other</Category>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <Icon>https://raw.githubusercontent.com/Jeor/observatory/main/public/observatory-icon.svg</Icon>
+  <ExtraParams>--user=0:0 --read-only --tmpfs /tmp --cap-drop=ALL --cap-add=CHOWN --cap-add=SETUID --cap-add=SETGID --security-opt=no-new-privileges:true</ExtraParams>
+  <Config Name="WebUI Port" Target="8080" Default="18085" Mode="tcp" Description="Choose an unused host port. Open the WebUI after installation." Type="Port" Display="always" Required="true" Mask="false">18085</Config>
+  <Config Name="Appdata" Target="/config" Default="/mnt/user/appdata/observatory" Mode="rw" Description="Persistent settings and viewing data. Back up this folder; it contains your service credentials." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/observatory</Config>
+  <Config Name="Configuration Directory" Target="CONFIG_DIR" Default="/config" Mode="" Type="Variable" Display="advanced" Required="true" Mask="false">/config</Config>
+  <Config Name="Data Directory" Target="DATA_DIR" Default="/config/data" Mode="" Type="Variable" Display="advanced" Required="true" Mask="false">/config/data</Config>
+  <Config Name="Mode" Target="OBSERVATORY_MODE" Default="live" Mode="" Type="Variable" Display="advanced" Required="true" Mask="false">live</Config>
+</Container>

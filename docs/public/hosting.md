@@ -1,45 +1,23 @@
-# Unraid and remote access
+# Hosting
 
 ## Unraid
 
-Use `ghcr.io/jeor/observatory:latest` with these settings:
+Download `unraid/observatory.xml` from this repository and place it in `/boot/config/plugins/dockerMan/templates-user/`. In **Docker → Add Container**, select **Observatory**, choose an unused host port, and apply.
 
-| Setting | Value |
-|---|---|
-| Container port | `8080` |
-| Data mapping | Your dedicated appdata folder → `/app/data` |
-| Secrets mapping | Your secrets folder → `/run/secrets` (read-only) |
-| `OBSERVATORY_MODE` | `live` |
-| `OBSERVATORY_AUTH_FILE` | `/run/secrets/dashboard-login.json` |
-| `OBSERVATORY_TIMEZONE` | Your IANA time zone, e.g. `Europe/London` |
-| `ALLOWED_HOSTS` | Your dashboard hostname, without `https://` or a port |
+Open **WebUI** from the container’s menu. Copy the setup code from **Logs**, then complete the wizard. No SSH access or credential files are required for setup.
 
-Add the service addresses from the [connection guide](setup.md), plus these container paths:
+The template stores settings and history in `/mnt/user/appdata/observatory`. The container initializes the configuration directory’s ownership and then runs as UID/GID 1000. Keep this directory backed up and private.
 
-```dotenv
-AIOM_ADMIN_KEY_FILE=/run/secrets/aiom-key
-AIOM_CONFIG_ID_FILE=/run/secrets/aiom-config
-STREAMS_CREDENTIALS_FILE=/run/secrets/streams-login.json
-```
+The template is provided here; Observatory is not yet listed in Community Applications.
 
-Data must be writable and secrets readable by UID 1000. Use a dedicated data folder for each installation.
+## Docker Compose
 
-## Traefik
+The supplied compose file listens on localhost by default. Set `OBSERVATORY_BIND` to your server’s LAN IP to access it from other devices, and set `OBSERVATORY_PORT` to an unused port. Check the startup output for bind conflicts; Observatory never stops another container to free a port.
 
-The [example Compose file](../../examples/compose.traefik.yaml) connects to an existing Traefik network without publishing a host port. It expects a `websecure` entrypoint, `letsencrypt` certificate resolver, and `proxy` network; adjust those names to match your setup.
+## Remote access
 
-Add your domain and network to `.env`:
+Use an HTTPS reverse proxy and keep the owner login enabled. Set `ALLOWED_HOSTS` to additional dashboard hostnames before accessing them. This is a single-owner dashboard: anyone with its login can see all connected profiles.
 
-```dotenv
-OBSERVATORY_DOMAIN=observatory.example.com
-PROXY_NETWORK=proxy
-```
+## Existing installations
 
-Then run from the repository directory:
-
-```sh
-docker compose --env-file .env -f examples/compose.traefik.yaml pull
-docker compose --env-file .env -f examples/compose.traefik.yaml up -d --no-build
-```
-
-Use HTTPS for remote access. Keep the dashboard login enabled, and don't expose the raw HTTP port publicly. All signed-in viewers can see all profiles.
+Existing `OBSERVATORY_AUTH_FILE`, AIOMetadata/AIOStreams secret-file variables, and `/app/data` volumes remain supported. Keep those mounts when updating. The default settings location is the existing data directory unless `CONFIG_DIR` is set. Do not replace your data volume just to update the image.
