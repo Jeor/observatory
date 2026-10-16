@@ -29,7 +29,7 @@ const server=createServer({maxHeaderSize:65536},async(req,res)=>{
  if(url.pathname.startsWith('/api/')){res.writeHead(404);res.end();return;}
  const candidate=resolve(root,'.'+decodeURIComponent(url.pathname));if(candidate!==root&&!candidate.startsWith(root+sep)){res.writeHead(400);res.end();return;}
  const file=extname(candidate)?candidate:resolve(root,'index.html');if(!existsSync(file)){res.writeHead(404);res.end('Build the frontend first.');return;}
- const mime:Record<string,string>={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.woff2':'font/woff2','.ico':'image/x-icon'};res.setHeader('Content-Type',mime[extname(file)]||'application/octet-stream');res.end(req.method==='HEAD'?undefined:readFileSync(file));
+ const mime:Record<string,string>={'.html':'text/html; charset=utf-8','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.woff2':'font/woff2','.ttf':'font/ttf','.ico':'image/x-icon'};res.setHeader('Content-Type',mime[extname(file)]||'application/octet-stream');res.end(req.method==='HEAD'?undefined:readFileSync(file));
  }catch{res.writeHead(500);res.end('Request unavailable');}
 });
 server.listen(c.port,c.host,()=>console.log(`Observatory ${c.mode} · http://${c.host}:${c.port}`));

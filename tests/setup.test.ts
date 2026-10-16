@@ -37,9 +37,13 @@ test('first-run wizard protects setup, persists short-password login, restarts a
   assert.equal((await post('save',settings,{'x-setup-code':token})).status,401);
   const unlocked=await (await post('unlock',{},auth)).json();assert.equal(unlocked.configured,true);assert.ok(!JSON.stringify(unlocked).includes('password'));
   assert.equal((await fetch(base+'/setup',{headers:auth})).status,200);
+  assert.equal((await post('save',{...settings,timeZone:'America/Chicago'},auth)).status,200);
+  await wait(async()=>(await fetch(base+'/api/overview',{headers:auth})).ok);
+  assert.equal(JSON.parse(readFileSync(join(dir,'settings.json'),'utf8')).timeZone,'America/Chicago');
   await stop();output='';child=start();child.stdout!.on('data',b=>output+=b);child.stderr!.on('data',b=>output+=b);
   await wait(async()=>(await fetch(base+'/api/overview',{headers:auth})).ok);
   assert.ok(!output.includes('Observatory setup code:'));
+  assert.equal(JSON.parse(readFileSync(join(dir,'settings.json'),'utf8')).timeZone,'America/Chicago');
   assert.equal(JSON.parse(readFileSync(join(dir,'settings.json'),'utf8')).login.password,'x');
  }finally{await stop();rmSync(dir,{recursive:true,force:true});}
 });

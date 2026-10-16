@@ -1,1 +1,2 @@
-/* System fonts keep the private dashboard independent of third-party font requests. */
+/* Locally hosted, SIL Open Font License. */
+@font-face{font-family:'Source Sans 3';src:url('/fonts/source-sans-3.ttf') format('truetype');font-weight:200 900;font-style:normal;font-display:swap}

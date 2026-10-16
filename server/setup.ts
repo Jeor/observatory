@@ -21,13 +21,14 @@ export function createManagement(config:Config|undefined,onSaved:()=>void):Manag
  let failures=0,windowStart=Date.now(),busy=false,saved=false;
  return async(req,res)=>{
   const path=(req.url||'/').split('?')[0];
-  if(!['/setup','/setup.js','/setup.css'].includes(path)&&!path.startsWith('/api/setup/'))return false;
+  const assetPaths=['/setup','/setup.js','/setup.css','/fonts/fonts.css','/fonts/source-sans-3.ttf'];
+  if(!assetPaths.includes(path)&&!path.startsWith('/api/setup/'))return false;
   res.setHeader('Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Referrer-Policy','no-referrer');res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self'; frame-ancestors 'none'; base-uri 'none'");
   if(configured&&!authorized(req,config!.login)){res.writeHead(401,{'WWW-Authenticate':'Basic realm="Observatory", charset="UTF-8"'});res.end('Authentication required');return true;}
-  if(['/setup','/setup.js','/setup.css'].includes(path)){
+  if(assetPaths.includes(path)){
    if(req.method!=='GET'&&req.method!=='HEAD'){reply(res,405,{error:'Method not allowed'});return true;}
    const file=path==='/setup'?'setup.html':path.slice(1);
-   try{res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':'text/html; charset=utf-8');res.end(req.method==='HEAD'?undefined:readFileSync(resolve('public',file)));}catch{reply(res,500,{error:'Setup files unavailable. Reinstall the image.'});}return true;
+   try{res.setHeader('Content-Type',file.endsWith('.ttf')?'font/ttf':file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':'text/html; charset=utf-8');res.end(req.method==='HEAD'?undefined:readFileSync(resolve('public',file)));}catch{reply(res,500,{error:'Setup files unavailable. Reinstall the image.'});}return true;
   }
   if(path==='/api/setup/status'&&req.method==='GET'){reply(res,200,{configured});return true;}
   if(req.method!=='POST'){reply(res,405,{error:'Method not allowed'});return true;}
