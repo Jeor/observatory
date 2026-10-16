@@ -20,7 +20,15 @@ docker exec "$name" node -e "require('node:assert/strict').equal(require('node:f
 # First-run setup on a bind mount, matching the Unraid template.
 docker rm -f "$name" >/dev/null
 config=$(mktemp -d)
-trap 'docker rm -f "$name" >/dev/null 2>&1 || true; docker volume rm "$volume" >/dev/null 2>&1 || true; rm -rf "$config"' EXIT
+cleanup_setup() {
+  docker rm -f "$name" >/dev/null 2>&1 || true
+  docker volume rm "$volume" >/dev/null 2>&1 || true
+  # The bind-mount test transfers ownership to UID 1000. Restore the runner's
+  # ownership before deleting this isolated temporary directory (CI uses 1001).
+  docker run --rm --user 0:0 --entrypoint chown -v "$config:/cleanup" "$image" -R "$(id -u):$(id -g)" /cleanup
+  rm -rf "$config"
+}
+trap cleanup_setup EXIT
 chmod 755 "$config"
 docker run -d --name "$name" --user 0:0 --read-only --tmpfs /tmp -v "$config:/config" --cap-drop ALL --cap-add CHOWN --cap-add SETUID --cap-add SETGID --security-opt no-new-privileges:true -e CONFIG_DIR=/config -e DATA_DIR=/config/data -e OBSERVATORY_MODE=live "$image" >/dev/null
 for attempt in $(seq 1 30); do
