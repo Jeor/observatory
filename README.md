@@ -1,6 +1,6 @@
 # Observatory
 
-A private viewing journal and traffic dashboard for **AIOMetadata** and **AIOStreams**. Explore your history, genre constellation, monthly reviews, and provider usage.
+A private viewing journal and traffic dashboard for **AIOMetadata** and **AIOStreams**. Explore your history, genre constellation, monthly and yearly reviews, and provider usage.
 
 ## Install
 

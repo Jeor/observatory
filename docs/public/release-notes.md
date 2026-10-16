@@ -1,12 +1,14 @@
-# Observatory 0.3.0
+# Observatory 0.4.0
 
-- Explore a dedicated Constellation page with colored nebulas, clear logos, poster previews, genre navigation, and a companion detail panel.
-- Rotate and zoom the starfield with smoother motion and orientation-aware drag controls.
-- Browse a cleaner Journal with episode search, complete-day loading, grouped series, and a continuous starfield background.
-- Use the compact Review calendar, interactive genre filters, and artwork-based yearly review.
-- See download traffic on the Observatory page, with simpler navigation and compact view options.
-- Improved poster and clear-logo retrieval, including SVG logos from supported artwork providers.
+- Browse a looping, diagonal backdrop reel with drag-and-toss momentum and clearlogos on hover. No automatic scrolling.
+- Explore distinct Month and Year reviews: calendar-first browsing, annual artwork, series rankings, and recorded viewing milestones.
+- Select a series, busiest day, weekday, or streak to filter the viewing collection.
+- Switch the consolidated genre section between overall proportions and changes over time.
+- Open a more compact media panel with backdrop, clearlogo, poster, and viewing details.
+- Period comparisons require explicitly complete coverage; partial AIOMetadata history does not produce misleading comparisons.
 
-Docker: `ghcr.io/jeor/observatory:0.3.0` or `ghcr.io/jeor/observatory:latest`.
+The backdrop reel uses landscape artwork; availability depends on your metadata source.
 
-See the [connection guide](setup.md) to get started.
+Docker: `ghcr.io/jeor/observatory:0.4.0` or `ghcr.io/jeor/observatory:latest`.
+
+To update a Compose installation, run `docker compose pull && docker compose up -d`. If pinned to an older image version, change the tag first.

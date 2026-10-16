@@ -1185,3 +1185,135 @@ html{scrollbar-gutter:stable}
 .journal-timeline .journal-grid.list{row-gap:4px}
 .journal-timeline .card-copy{text-shadow:0 1px 5px #03060980}
 body:has(.journal-timeline) .ambient-sky::after{background:linear-gradient(90deg,#06090e80 0%,#06090e55 60%,#06090e28 100%)}
+
+/* Artwork-led period recap, derived from recorded viewing history. */
+.review-recap{margin:22px 0 28px}
+.recap-art-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px}
+.review-recap h2{font-size:17px;font-weight:500;margin:0 0 12px}
+.recap-art-heading h2{margin:0}
+.recap-art-heading>span,.recap-trends>p{font-size:12px;color:var(--muted)}
+.recap-art-strip{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 10px;scrollbar-width:thin;scrollbar-color:#52607466 transparent}
+.recap-art-strip>button{position:relative;flex:0 0 clamp(90px,9vw,125px);padding:0;overflow:hidden;border-radius:7px;text-align:left;background:none;color:var(--ink)}
+.recap-art-strip .artwork{width:100%;height:auto;aspect-ratio:2/3}
+.recap-art-strip>button>span{position:absolute;inset:auto 0 0;padding:22px 8px 8px;font-size:11px;line-height:1.25;background:linear-gradient(transparent,#030609ec);opacity:0;transition:opacity .15s}
+.recap-art-strip>button:hover>span,.recap-art-strip>button:focus-visible>span{opacity:1}
+.recap-milestones{display:flex;flex-wrap:wrap;gap:20px 48px;margin:18px 0 24px}
+.recap-milestones>div{display:flex;flex-direction:column;gap:4px}
+.recap-milestones strong{font-size:23px;font-weight:500;line-height:1.2}
+.recap-milestones span{font-size:12px;color:var(--muted)}
+.recap-milestones small{font-size:11px;color:var(--muted);font-weight:400}
+.recap-patterns{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.recap-series{display:grid;gap:3px}
+.recap-series>button{display:flex;align-items:center;gap:12px;padding:7px 0;width:100%;text-align:left;color:var(--ink);background:none}
+.recap-rank{font-size:11px;color:var(--muted);width:18px}
+.recap-series .artwork{width:32px;height:46px;flex-shrink:0;border-radius:4px}
+.recap-series-title{flex:1;font-size:13px}
+.recap-series-count{font-size:18px;text-align:right}
+.recap-series-count small{display:block;font-size:10px;color:var(--muted)}
+.recap-trends>p{margin:-6px 0 12px}
+.recap-trend-bars{display:grid;gap:7px;max-height:250px;overflow-y:auto;scrollbar-width:thin}
+.recap-trend-bars>div{display:flex;gap:10px;align-items:center;font-size:11px;color:var(--muted)}
+.recap-trend-bars>div>span{width:43px;flex-shrink:0}
+.recap-trend-bars>div>small{width:22px;text-align:right}
+.recap-trend-track{display:flex;align-items:stretch;gap:2px;flex:1;min-height:24px;border-radius:4px;overflow:hidden}
+.recap-trend-track button{flex-basis:0;min-width:5px;padding:0;opacity:.75;border-radius:0}
+.recap-trend-track button:hover,.recap-trend-track button:focus-visible{opacity:1;outline:2px solid var(--ink);outline-offset:-2px}
+.recap-trend-legend{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:10px}
+.recap-trend-legend button{display:flex;align-items:center;gap:6px;background:none;color:var(--muted);font-size:11px;min-height:30px;padding:3px 0}
+.recap-trend-legend i{width:6px;height:6px;border-radius:50%}
+@media(max-width:760px){.recap-patterns{grid-template-columns:1fr;gap:24px}.recap-milestones{gap:16px 24px}.recap-milestones strong{font-size:20px}.recap-art-strip>button{flex-basis:95px}.recap-art-heading>span{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.recap-art-strip>button>span{transition:none}}
+/* Review: calendar-first months and artwork-led annual retrospectives. */
+.recap-patterns{display:block}
+.recap-series{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;max-width:880px}
+.recap-series>button{position:relative;display:flex;flex-direction:column;align-items:stretch;gap:6px;padding:0;min-width:0}
+.recap-series .artwork{width:100%;height:auto;aspect-ratio:2/3;border-radius:8px}
+.recap-series .recap-rank{position:absolute;z-index:1;top:8px;left:8px;width:auto;padding:2px 6px;background:#06090ed9;color:var(--ink);border-radius:4px}
+.recap-series-title{font-size:14px;line-height:1.3}
+.recap-series-count{text-align:left;font-size:12px;color:var(--muted)}
+.recap-series-count small{display:inline;margin-left:4px;font-size:12px}
+.recap-milestones>button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;background:none;color:var(--ink);padding:8px 0;text-align:left}
+.recap-milestones>button:hover strong,.recap-standout button:hover{color:var(--gold)}
+.recap-standout{font-size:20px;margin:12px 0 16px;line-height:1.4}
+.recap-standout button{font:inherit;color:var(--ink);padding:0;background:none;text-decoration:underline;text-decoration-color:#ffffff30;text-underline-offset:4px}
+.recap-standout>span{display:block;font-size:12px;color:var(--muted);margin-top:5px}
+.review-genre-unified{margin-top:20px}
+.review-genre-unified .genre-mix .section-heading{display:none}
+.review-entries{scroll-margin-top:20px}
+.review-year .recap-art-strip{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:8px}
+.review-year .recap-art-strip>button:nth-child(even){transform:translateY(8px)}
+.review-year .recap-art-strip{padding-bottom:18px}
+@media(max-width:760px){.recap-series{display:flex;overflow-x:auto;padding-bottom:8px;gap:12px}.recap-series>button{flex:0 0 112px}.review-year .recap-art-strip{display:flex}.review-year .recap-art-strip>button{flex:0 0 90px}.recap-standout{font-size:18px}.recap-milestones{gap:12px 24px}}
+/* Uniform poster gallery with clearlogo reveals. */
+.review-year .recap-art-strip{display:flex;align-items:stretch;gap:12px;padding:0 0 12px}
+.review-year .recap-art-strip>button,.recap-art-strip>button{flex:0 0 132px;height:198px;transform:none!important;border-radius:8px}
+.recap-art-strip .artwork{width:100%;height:100%;aspect-ratio:2/3}
+.recap-art-strip .artwork img{width:100%;height:100%;object-fit:cover}
+.recap-art-strip>button>.recap-poster-logo{display:flex;align-items:flex-end;justify-content:center;min-height:42%;padding:32px 12px 15px;opacity:0;transform:translateY(6px);transition:opacity .22s ease,transform .22s ease;background:linear-gradient(transparent,#030609df)}
+.recap-poster-logo img{width:100%;max-height:62px;object-fit:contain;filter:drop-shadow(0 2px 5px #0009)}
+.recap-poster-logo>span{font-size:16px;font-weight:600;text-align:center}
+.recap-art-strip>button:hover>.recap-poster-logo,.recap-art-strip>button:focus-visible>.recap-poster-logo{opacity:1;transform:translateY(0)}
+.media-detail{width:min(620px,calc(100vw - 28px));background:#0a1018}
+.media-detail-hero{position:relative}
+.media-detail-hero>.artwork{height:260px;aspect-ratio:auto}
+.media-detail-hero:after{content:'';position:absolute;inset:30% 0 0;background:linear-gradient(transparent,#0a1018);pointer-events:none}
+.media-detail-logo{position:absolute;z-index:1;bottom:26px;left:28px;right:28px;display:flex;align-items:flex-end;min-height:50px}
+.media-detail-logo img{max-width:65%;width:auto;max-height:80px;object-fit:contain;filter:drop-shadow(0 2px 5px #0009)}
+.media-detail-logo>span{font-size:30px;font-weight:600}
+.media-detail .detail-body{padding:0 28px 20px}
+.media-detail-heading{display:flex;gap:18px;align-items:center;margin:0 0 22px}
+.media-detail-heading>.artwork{width:70px;height:105px;flex-shrink:0;border-radius:6px}
+.media-detail-heading h2{font-size:24px;margin:0 0 6px}
+.media-detail-heading p{font-size:14px;color:var(--muted);margin:0 0 9px}
+.media-detail-meta{display:flex;gap:16px;font-size:12px;color:var(--muted)}
+.media-detail-record{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px;font-size:12px;color:var(--muted)}
+.media-detail-status{color:var(--ink)}
+.media-detail .detail-progress{margin:16px 0 20px}
+@media(hover:none){.recap-art-strip>button>.recap-poster-logo{opacity:1;transform:none}}
+@media(max-width:600px){.media-detail-hero>.artwork{height:210px}.media-detail .detail-body{padding:0 20px 16px}.media-detail-logo{left:20px;right:20px}.media-detail-heading h2{font-size:21px}.review-year .recap-art-strip>button{flex-basis:112px;height:168px}}
+@media(prefers-reduced-motion:reduce){.recap-art-strip>button>.recap-poster-logo{transition:none;transform:none}}
+.detail-dialog.media-detail{margin:auto}
+/* A slow landscape filmstrip keeps the full backdrop composition visible. */
+.artwork-reel{position:relative;padding-top:26px;margin-top:-6px}
+.reel-toggle{position:absolute;right:0;top:-8px;font-size:11px;min-height:30px;color:var(--muted)}
+.review-year .backdrop-reel{gap:14px;scroll-behavior:auto;overscroll-behavior-x:contain}
+.review-year .backdrop-reel>button{flex:0 0 320px;width:320px;height:180px}
+.backdrop-reel .artwork{aspect-ratio:16/9}
+.backdrop-reel .recap-poster-logo img{max-width:70%;max-height:55px}
+@media(max-width:600px){.review-year .backdrop-reel>button{flex-basis:256px;width:256px;height:144px}}
+@media(prefers-reduced-motion:reduce){.reel-toggle{display:none}.artwork-reel{padding-top:8px}}
+/* Animate a compositor layer; native scroll is retained for manual browsing. */
+.backdrop-reel-viewport{overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;scrollbar-color:#52607466 transparent;overscroll-behavior-x:contain;padding-bottom:10px;overflow-anchor:none}
+.review-year .backdrop-reel-viewport .backdrop-reel{width:max-content;overflow:visible;padding:0;will-change:transform}
+@media(prefers-reduced-motion:reduce){.review-year .backdrop-reel-viewport .backdrop-reel{will-change:auto}}
+/* Matching diagonal cuts turn the backdrop reel into one continuous ribbon. */
+.review-year .backdrop-reel-viewport .backdrop-reel{gap:0;padding-right:0}
+.review-year .backdrop-reel-viewport .backdrop-reel>button{flex-basis:352px;width:352px;height:180px;border-radius:0;clip-path:polygon(32px 0,100% 0,calc(100% - 32px) 100%,0 100%);margin-right:-29px;isolation:isolate}
+.review-year .backdrop-reel-viewport .backdrop-reel>button:last-child{margin-right:0}
+.backdrop-reel-viewport .backdrop-reel .artwork{border-radius:0}
+.backdrop-reel-viewport .backdrop-reel>button>.recap-poster-logo{padding-left:42px;padding-right:42px}
+.backdrop-reel-viewport .backdrop-reel>button:focus-visible{outline:none;box-shadow:inset 0 0 0 3px var(--copper)}
+@media(max-width:600px){.review-year .backdrop-reel-viewport .backdrop-reel>button{flex-basis:282px;width:282px;height:144px;clip-path:polygon(26px 0,100% 0,calc(100% - 26px) 100%,0 100%);margin-right:-23px}.review-year .backdrop-reel-viewport .backdrop-reel>button:last-child{margin-right:0}.backdrop-reel-viewport .backdrop-reel>button>.recap-poster-logo{padding-left:34px;padding-right:34px}}
+/* Direct manipulation: native touch momentum and mouse toss, no autoplay. */
+.manual-reel{padding-top:0;margin-top:0}
+.manual-reel .backdrop-reel-viewport{cursor:grab;touch-action:pan-x pan-y;user-select:none;-webkit-user-select:none}
+.manual-reel .backdrop-reel-viewport.is-dragging,.manual-reel .backdrop-reel-viewport.is-dragging button{cursor:grabbing}
+.manual-reel .backdrop-reel button{cursor:grab}
+.manual-reel .backdrop-reel img{-webkit-user-drag:none;user-select:none}
+.review-year .manual-reel .backdrop-reel{will-change:auto}
+.manual-reel .backdrop-reel>button>.recap-poster-logo{bottom:0;transform:none;transition:opacity .22s ease;padding-bottom:15px}
+.manual-reel .backdrop-reel>button:focus-visible::after{content:'';position:absolute;inset:0;border:3px solid var(--copper);pointer-events:none;z-index:2}
+.manual-reel .backdrop-reel-viewport:focus-visible{outline:2px solid var(--copper);outline-offset:4px}
+@media(prefers-reduced-motion:reduce){.manual-reel .backdrop-reel>button>.recap-poster-logo{transition:none}}
+/* Three identical cycles keep both ends continuous during a drag or toss. */
+.manual-reel .backdrop-reel-viewport{scrollbar-width:none}
+.manual-reel .backdrop-reel-viewport::-webkit-scrollbar{display:none}
+.reel-cycle{display:flex;flex:none;gap:0;min-width:0}
+.review-year .backdrop-reel .reel-cycle>button{position:relative;flex:0 0 352px;width:352px;height:180px;padding:0;overflow:hidden;background:none;color:var(--ink);border-radius:0;clip-path:polygon(32px 0,100% 0,calc(100% - 32px) 100%,0 100%);margin-right:-29px;cursor:grab}
+.reel-cycle>button>.recap-poster-logo{position:absolute;inset:auto 0 0;display:flex;align-items:flex-end;justify-content:center;min-height:42%;padding:32px 42px 15px;background:linear-gradient(transparent,#030609df);opacity:0;transition:opacity .22s ease}
+.reel-cycle>button:hover>.recap-poster-logo,.reel-cycle>button:focus-visible>.recap-poster-logo{opacity:1}
+.reel-cycle>button:focus-visible{outline:none}
+.reel-cycle>button:focus-visible::after{content:'';position:absolute;inset:0;border:3px solid var(--copper);pointer-events:none}
+@media(max-width:600px){.review-year .backdrop-reel .reel-cycle>button{flex-basis:282px;width:282px;height:144px;clip-path:polygon(26px 0,100% 0,calc(100% - 26px) 100%,0 100%);margin-right:-23px}.reel-cycle>button>.recap-poster-logo{padding-left:34px;padding-right:34px}}
+@media(hover:none){.reel-cycle>button>.recap-poster-logo{opacity:1}}
+@media(prefers-reduced-motion:reduce){.reel-cycle>button>.recap-poster-logo{transition:none}}

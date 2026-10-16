@@ -9,3 +9,5 @@ import './release.test.ts';
 import './setup.test.ts';
 
 import './orbit.test.ts';
+
+import './recap.test.ts';

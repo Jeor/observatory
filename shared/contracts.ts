@@ -4,4 +4,4 @@ export interface TrafficBucket {at:number;bytes:number}
 export interface ProviderTotal {name:string;bytes:number}
 export interface SourceHealth {name:string;state:'connected'|'disabled'|'stale'|'error';lastSuccess:number|null;message:string}
 export interface SessionSample {at:number;positionMs:number;paused:boolean}
-export interface DashboardData {timeZone?:string;mode:'demo'|'live';now:number;plays:PlayRecord[];traffic:TrafficBucket[];providers:ProviderTotal[];sources:SourceHealth[];metrics:{downloads:Metric<number>;watchTime:Metric<number>};coverage:string}
+export interface DashboardData {historyCoverage?:{start:string;end:string;complete:boolean};timeZone?:string;mode:'demo'|'live';now:number;plays:PlayRecord[];traffic:TrafficBucket[];providers:ProviderTotal[];sources:SourceHealth[];metrics:{downloads:Metric<number>;watchTime:Metric<number>};coverage:string}
