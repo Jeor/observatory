@@ -16,8 +16,8 @@ test('poller does not overlap and stops cleanly',async()=>{
 });
 import {allowedArt} from '../server/data/art.ts';
 test('artwork accepts known public image paths only and rejects credentials and redirects',()=>{
- assert.equal(allowedArt('https://image.tmdb.org/t/p/original/a.jpg'),true);
- for(const u of ['http://127.0.0.1/a.jpg','https://image.tmdb.org.evil.test/a.jpg','https://user:secret@image.tmdb.org/a.jpg','https://image.tmdb.org/a.jpg?api_key=secret','https://image.tmdb.org/a.svg','https://image.tmdb.org/a.jpg#secret'])assert.equal(allowedArt(u),false);
+ assert.equal(allowedArt('https://image.tmdb.org/t/p/original/a.jpg'),true);assert.equal(allowedArt('https://image.tmdb.org/t/p/original/a.svg'),true);
+ for(const u of ['http://127.0.0.1/a.jpg','https://image.tmdb.org.evil.test/a.jpg','https://user:secret@image.tmdb.org/a.jpg','https://image.tmdb.org/a.jpg?api_key=secret','https://image.tmdb.org/a.jpg#secret'])assert.equal(allowedArt(u),false);
 });
 import {createStreamsClient} from '../server/connectors/aiostreams.ts';
 test('streams authenticates once then reuses its session, never sends password on GET',async()=>{

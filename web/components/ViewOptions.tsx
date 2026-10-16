@@ -1,0 +1,3 @@
+import {useEffect,useRef} from 'react';
+import {GroupingControl} from './GroupingControl';
+export function ViewOptions(){const ref=useRef<HTMLDetailsElement>(null);useEffect(()=>{const close=(e:PointerEvent)=>{if(ref.current&&!ref.current.contains(e.target as Node))ref.current.open=false;};const escape=(e:KeyboardEvent)=>{if(e.key==='Escape'&&ref.current?.open){ref.current.open=false;ref.current.querySelector('summary')?.focus();}};document.addEventListener('pointerdown',close);document.addEventListener('keydown',escape);return()=>{document.removeEventListener('pointerdown',close);document.removeEventListener('keydown',escape);};},[]);return <details ref={ref} className="view-options"><summary>View options</summary><div><GroupingControl/></div></details>;}

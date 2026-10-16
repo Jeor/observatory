@@ -11,3 +11,18 @@ export function groupJournal(records:PlayRecord[],minutes:number):JournalGroup[]
  }
  return groups;
 }
+
+export interface JournalDay {day:string;blocks:JournalGroup[][]}
+// Group verified series across the entire day before deciding how much to display.
+export function journalDays(groups:JournalGroup[],dateKey:(at:number)=>string):JournalDay[]{
+ const days=new Map<string,JournalDay>();const series=new Map<string,JournalGroup[]>();
+ for(const group of groups){
+  const r=group.latest,day=dateKey(r.at);let bucket=days.get(day);
+  if(!bucket){bucket={day,blocks:[]};days.set(day,bucket);}
+  const key=r.kind==='episode'&&r.titleKey?JSON.stringify([day,r.titleKey]):null;
+  const existing=key?series.get(key):undefined;
+  if(existing)existing.push(group);
+  else{const block=[group];bucket.blocks.push(block);if(key)series.set(key,block);}
+ }
+ return [...days.values()];
+}

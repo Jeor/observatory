@@ -18,3 +18,16 @@ test('stored alias reconciliation retains latest progress and preserves other pr
  const fresh=normalizePlaystate({inProgress:[{...base,canonicalId:'tt12345:2:4',updatedAt:20,positionMs:800}],recentlyPlayed:[]},20);
  s.reconcileAliases({[old[0].id]:fresh[0].id});s.savePlays(fresh);assert.equal(s.plays().length,2);assert.equal(s.plays().find(r=>r.profile==='one')?.positionMs,800);s.close();
 });
+import {fetchPlaystate} from '../server/connectors/aiometadata.ts';
+test('metadata enrichment proxies logos and posters without exposing upstream URLs',async()=>{
+ const original=globalThis.fetch;
+ globalThis.fetch=async(input)=>new Response(JSON.stringify(String(input).includes('/meta/')?{meta:{genres:['Drama'],logo:'https://image.tmdb.org/t/p/original/logo.png',poster:'https://image.tmdb.org/t/p/original/poster.jpg'}}:{inProgress:[],recentlyPlayed:[{profile:'one',videoId:'tt12345',title:'Film',played:true,updatedAt:10}]}),{headers:{'content-type':'application/json'}});
+ try{const result=await fetchPlaystate('https://example.test/playstate/config','key');assert.match(result.plays[0].logo||'',/^\/api\/art\/[a-f0-9]{20}$/);assert.match(result.plays[0].poster||'',/^\/api\/art\/[a-f0-9]{20}$/);assert.equal(result.plays[0].genre,'Drama');const db=new Store(':memory:');db.savePlays(result.plays);db.set('images',result.images);db.pruneEnrichment(Date.now());assert.equal(Object.keys(db.get('images')||{}).length,2);db.close();}finally{globalThis.fetch=original;}
+});
+test('unwrap clear SVG logos and standard poster fallback without accepting arbitrary origins',()=>{
+ assert.equal(artSource('https://aiom.example/poster-cache/logo/https://image.tmdb.org/t/p/original/logo.svg'),'https://image.tmdb.org/t/p/original/logo.svg');
+ const fallback='https://aiom.example/poster-cache/poster/https://image.tmdb.org/t/p/original/poster.jpg';
+ assert.equal(artSource('https://aiom.example/poster-cache/proxy/poster/series/tt123?url=private&sig=secret&fallback='+encodeURIComponent(fallback)),'https://image.tmdb.org/t/p/original/poster.jpg');
+ assert.equal(artSource('https://aiom.example/poster-cache/logo/http://127.0.0.1/secret.svg'),null);
+ assert.equal(artSource('https://aiom.example/poster-cache/proxy/poster/series/tt123?fallback='+encodeURIComponent('https://evil.example/x.svg')),null);
+});

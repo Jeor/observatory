@@ -1,8 +1,16 @@
 import {allowedArt} from '../data/art.ts';
-export function artSource(raw:unknown):string|null{
+export function artSource(raw:unknown,depth=0):string|null{
  if(allowedArt(raw))return raw;
- if(typeof raw!=='string')return null;
- try{const u=new URL(raw);const prefix='/poster-cache/background/';if(u.pathname.startsWith(prefix)){const nested=u.pathname.slice(prefix.length);if(allowedArt(nested))return nested;}}catch{}
+ if(typeof raw!=='string'||depth>3)return null;
+ try{
+  const u=new URL(raw);
+  for(const kind of ['background','logo','poster']){
+   const prefix=`/poster-cache/${kind}/`;
+   if(u.pathname.startsWith(prefix))return artSource(u.pathname.slice(prefix.length),depth+1);
+  }
+  // Use the provider's standard poster, not the user's rating/textless override.
+  if(/^\/poster-cache\/proxy\/poster\/(movie|series)\/[^/]+$/.test(u.pathname))return artSource(u.searchParams.get('fallback'),depth+1);
+ }catch{}
  return null;
 }
 // AIOM's poster route supplies an explicit mapped title ID. Never merge by title text.

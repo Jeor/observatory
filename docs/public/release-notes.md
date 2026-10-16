@@ -1,5 +1,12 @@
-# Observatory
+# Observatory 0.3.0
 
-The first public release of Observatory: a self-hosted viewing journal, genre constellation, period reviews, and download charts.
+- Explore a dedicated Constellation page with colored nebulas, clear logos, poster previews, genre navigation, and a companion detail panel.
+- Rotate and zoom the starfield with smoother motion and orientation-aware drag controls.
+- Browse a cleaner Journal with episode search, complete-day loading, grouped series, and a continuous starfield background.
+- Use the compact Review calendar, interactive genre filters, and artwork-based yearly review.
+- See download traffic on the Observatory page, with simpler navigation and compact view options.
+- Improved poster and clear-logo retrieval, including SVG logos from supported artwork providers.
 
-See [GitHub Releases](https://github.com/Jeor/observatory/releases) for version notes and the [connection guide](setup.md) to get started.
+Docker: `ghcr.io/jeor/observatory:0.3.0` or `ghcr.io/jeor/observatory:latest`.
+
+See the [connection guide](setup.md) to get started.

@@ -724,8 +724,8 @@ input{caret-color:var(--copper)}
 @media(prefers-reduced-motion:reduce){.genre-segment>span,.genre-mix-legend button{transition:none}}
 
 /* Midnight observatory: ink-blue instruments, parchment type, brass accents. */
-:root{--bg:#0d1420;--surface:#141f2e;--ink:#f1eadc;--muted:#a7b5c7;--line:#303d50;--copper:#d4b483;--teal:#83b9c5;--track:#253247}
-body{background:var(--bg)}.wordmark{display:flex;align-items:center;gap:11px}.wordmark .observatory-mark{width:35px;height:35px;flex-shrink:0;color:var(--copper)}.wordmark .wordmark-name{font:inherit;color:var(--ink);margin:0;vertical-align:baseline}.wordmark{letter-spacing:-.7px}.topbar{min-height:88px}.utility-row{margin-bottom:16px}.hero-intro{color:#a7b5c7}.hero-feature:after{background:linear-gradient(180deg,transparent 22%,#0d142044 56%,#0d1420ed 100%)}.artwork{background-color:#182638}.artwork-fallback{background:#182638;color:#b1c1d3}.sphere-label text{stroke:#141f2e}.detail-dialog{background:var(--surface)}.detail-dialog::backdrop,.galaxy-dialog::backdrop{background:#050b14c9;backdrop-filter:blur(4px)}.detail-dialog .close{background:#0d1420e8}.detail-body h2{font-size:34px;line-height:1.12;margin:10px 0}.detail-body>p{font-size:14px;line-height:1.6;color:var(--muted)}.detail-progress{margin:26px 0 20px}.detail-progress>div{display:flex;justify-content:space-between;gap:14px;font-size:12px;color:var(--muted);margin-bottom:12px}.detail-progress strong{font-weight:400;color:var(--ink);font-variant-numeric:tabular-nums}.detail-progress strong span{color:var(--muted)}progress,progress::-webkit-progress-bar{background:var(--track)}progress::-webkit-progress-value{background:var(--copper)}progress::-moz-progress-bar{background:var(--copper)}.detail-tags{display:flex;gap:10px 16px;flex-wrap:wrap;font-size:12px;color:var(--muted);padding-bottom:18px}.detail-tags>span:first-child{color:var(--ink)}.detail-source{border-top:1px solid var(--line)}.detail-source summary,.connection-grid summary{cursor:pointer;min-height:44px;padding:14px 0;color:var(--muted);font-size:13px}.detail-source dl{font-size:12px}
+:root{--bg:#06090e;--surface:#0c121b;--ink:#f1eadc;--muted:#a7b5c7;--line:#26303e;--copper:#d4b483;--teal:#83b9c5;--track:#1a2432}
+body{background:var(--bg)}.wordmark{display:flex;align-items:center;gap:11px}.wordmark .observatory-mark{width:35px;height:35px;flex-shrink:0;color:var(--copper)}.wordmark .wordmark-name{font:inherit;color:var(--ink);margin:0;vertical-align:baseline}.wordmark{letter-spacing:-.7px}.topbar{min-height:88px}.utility-row{margin-bottom:16px}.hero-intro{color:#a7b5c7}.hero-feature:after{background:linear-gradient(180deg,transparent 22%,#06090e44 56%,#06090eed 100%)}.artwork{background-color:#101824}.artwork-fallback{background:#101824;color:#b1c1d3}.sphere-label text{stroke:#0c121b}.detail-dialog{background:var(--surface)}.detail-dialog::backdrop,.galaxy-dialog::backdrop{background:#050b14c9;backdrop-filter:blur(4px)}.detail-dialog .close{background:#06090ee8}.detail-body h2{font-size:34px;line-height:1.12;margin:10px 0}.detail-body>p{font-size:14px;line-height:1.6;color:var(--muted)}.detail-progress{margin:26px 0 20px}.detail-progress>div{display:flex;justify-content:space-between;gap:14px;font-size:12px;color:var(--muted);margin-bottom:12px}.detail-progress strong{font-weight:400;color:var(--ink);font-variant-numeric:tabular-nums}.detail-progress strong span{color:var(--muted)}progress,progress::-webkit-progress-bar{background:var(--track)}progress::-webkit-progress-value{background:var(--copper)}progress::-moz-progress-bar{background:var(--copper)}.detail-tags{display:flex;gap:10px 16px;flex-wrap:wrap;font-size:12px;color:var(--muted);padding-bottom:18px}.detail-tags>span:first-child{color:var(--ink)}.detail-source{border-top:1px solid var(--line)}.detail-source summary,.connection-grid summary{cursor:pointer;min-height:44px;padding:14px 0;color:var(--muted);font-size:13px}.detail-source dl{font-size:12px}
 .traffic .traffic-layout{display:flex;flex-direction:column;gap:14px;margin-top:20px}.traffic .metric-strip{display:flex;gap:40px;border:0;padding:0;margin:0 0 10px}.traffic .metric-strip>div{padding:0;border:0}.traffic .metric-strip strong,.traffic .metric-strip strong.byte-value{font-size:36px;line-height:1.2}.traffic .metric-strip>div>span{font:13px 'Source Sans 3',sans-serif;color:var(--muted);margin-top:6px}.traffic .metric-strip small{display:none}.traffic .traffic-chart{background:var(--surface);border-radius:16px;padding:20px 22px 14px}.traffic .provider-section{grid-template-columns:minmax(200px,.8fr) minmax(0,1.4fr);gap:30px}.provider-section h2{font-size:25px}.provider-bars>div{margin-bottom:18px}.provider-label{font-size:12px}.provider-label>span:last-child{font-variant-numeric:tabular-nums}.traffic.compact .metric-strip{gap:32px}.traffic.compact .metric-strip strong,.traffic.compact .metric-strip strong.byte-value{font-size:28px}
 .connection-grid{gap:24px}.connection-grid>article{background:var(--surface);border:0;border-radius:16px;padding:24px}.connection-grid article>p{font-size:13px;color:var(--muted);margin:4px 0}.source-freshness{font-size:12px;color:var(--muted);margin-top:18px}.source-metrics{display:flex;gap:36px;margin:22px 0}.source-metrics strong{display:block;font:32px 'Source Sans 3',sans-serif}.source-metrics strong small{font:12px 'Source Sans 3',sans-serif;color:var(--muted)}.source-metrics span{display:block;color:var(--muted);font-size:12px;margin-top:6px}.connection-grid details{border-top:1px solid var(--line)}.connection-grid dl{font-size:13px;line-height:1.7}.source-error{color:#e4b89e!important}.connection-note{border-top:0}.status.connected{color:#bad0aa;background:#a8c58e0d;border-color:#a8c58e30}
 .journal-date{grid-column:1/-1;font-size:24px;display:flex;align-items:baseline;gap:14px;padding-top:12px;margin-bottom:-8px}.journal-date span{font:12px 'Source Sans 3',sans-serif;color:var(--muted)}.journal-grid.list>.journal-date{margin:10px 0;padding-bottom:10px;border-bottom:1px solid var(--line)}.episode-stack{min-width:0;align-self:start}.episode-stack summary{list-style:none;cursor:pointer}.episode-stack summary::-webkit-details-marker{display:none}.episode-stack summary>.artwork{height:auto;aspect-ratio:2.35;border-radius:8px}.episode-stack-title{display:block;font:21px 'Source Sans 3',sans-serif;margin-top:9px}.episode-stack-title small{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font:12px 'Source Sans 3',sans-serif;margin-top:7px;min-height:28px}.episode-stack[open] .episode-stack-title small span{transform:rotate(180deg)}.episode-stack-content{border-top:1px solid var(--line);margin-top:10px}.episode-stack-content .artwork{display:none!important}.episode-stack-content .journal-card{padding:12px 0;border-bottom:1px solid var(--line)}.episode-stack-content .card-copy h3{display:none}.episode-stack-content .group-records{margin:0}.journal-grid.list .episode-stack summary{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:center;padding:14px 0}.journal-grid.list .episode-stack-content{margin-left:140px}.journal-grid.list .episode-stack-content .journal-card{grid-template-columns:1fr}.episode-stack summary:focus-visible{outline:2px solid var(--copper);outline-offset:5px;border-radius:8px}.journal.compact .journal-date{display:none}
@@ -773,5 +773,415 @@ button,input,select{font-size:13px}button:focus-visible,a:focus-visible,select:f
 
 /* Quiet sans-serif typography and a dark, compact stellar inspector. */
 h1,h2,h3,.wordmark,.wordmark .wordmark-name{font-family:var(--font-ui);font-weight:550;letter-spacing:-.025em}.hero-feature h2,.review-feature h2{font-weight:550}.wordmark{font-size:29px}.section-heading h2{font-size:25px}.hero-headline{font-weight:550}.journal-card h3,.review-collection h3{font-family:var(--font-ui);font-weight:550;font-size:20px;letter-spacing:-.015em}.metric-strip strong,.source-metrics strong,.review-totals strong{font-family:var(--font-ui);font-weight:500}
-.constellation.galaxy-section,.galaxy-dialog{background:#070d17}.galaxy-zoom button{background:#101926;border-color:#253246}.sphere-label text{stroke:#070d17}.galaxy-inspector{padding-top:16px;border-top:1px solid #243042}.galaxy-inspector-heading{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;min-height:0}.galaxy-inspector-heading h3{font:550 21px/1.25 var(--font-ui);white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;margin:4px 0 0;letter-spacing:-.02em}.galaxy-inspector-heading .micro{font-size:12px;color:#a7b5c7}.galaxy-inspector-heading .galaxy-actions{justify-content:flex-end;margin:0;gap:8px}.galaxy-inspector .galaxy-actions .text-button{min-height:34px;padding:6px 10px;font-size:13px}.galaxy-title-list{border-top:1px solid #192637}.galaxy-inspector .galaxy-title-list{height:auto;max-height:222px;min-height:80px;margin-top:10px}.galaxy-title-list button{display:grid;grid-template-columns:80px minmax(0,1fr) 16px;gap:12px;min-height:74px;padding:10px 0;border-radius:0;border-bottom:1px solid #192637;font:500 14px/1.35 var(--font-ui)}.galaxy-title-list button:hover{background:#ffffff05}.galaxy-title-list .artwork{width:80px;height:50px;border-radius:6px}.galaxy-title-list small{font-size:12px;font-weight:400;line-height:1.4;color:#a7b5c7}.galaxy-title-list button>span:last-child{color:#8c9db4}.galaxy-title-list .artwork-fallback small{display:none}.galaxy-title-heading{min-width:0}.galaxy-inspector-heading>span{font-size:12px}
+.constellation.galaxy-section,.galaxy-dialog{background:#04070c}.galaxy-zoom button{background:#101926;border-color:#253246}.sphere-label text{stroke:#04070c}.galaxy-inspector{padding-top:16px;border-top:1px solid #243042}.galaxy-inspector-heading{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;min-height:0}.galaxy-inspector-heading h3{font:550 21px/1.25 var(--font-ui);white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;margin:4px 0 0;letter-spacing:-.02em}.galaxy-inspector-heading .micro{font-size:12px;color:#a7b5c7}.galaxy-inspector-heading .galaxy-actions{justify-content:flex-end;margin:0;gap:8px}.galaxy-inspector .galaxy-actions .text-button{min-height:34px;padding:6px 10px;font-size:13px}.galaxy-title-list{border-top:1px solid #192637}.galaxy-inspector .galaxy-title-list{height:auto;max-height:222px;min-height:80px;margin-top:10px}.galaxy-title-list button{display:grid;grid-template-columns:80px minmax(0,1fr) 16px;gap:12px;min-height:74px;padding:10px 0;border-radius:0;border-bottom:1px solid #192637;font:500 14px/1.35 var(--font-ui)}.galaxy-title-list button:hover{background:#ffffff05}.galaxy-title-list .artwork{width:80px;height:50px;border-radius:6px}.galaxy-title-list small{font-size:12px;font-weight:400;line-height:1.4;color:#a7b5c7}.galaxy-title-list button>span:last-child{color:#8c9db4}.galaxy-title-list .artwork-fallback small{display:none}.galaxy-title-heading{min-width:0}.galaxy-inspector-heading>span{font-size:12px}
 @media(max-width:600px){.wordmark{font-size:27px}.section-heading h2{font-size:23px}.galaxy-title-list button{grid-template-columns:68px minmax(0,1fr) 16px;gap:10px}.galaxy-title-list .artwork{width:68px;height:46px}.galaxy-inspector-heading h3{font-size:20px}}
+
+/* Journal cards retain their footprint; grouped records open beside the grid. */
+html{scrollbar-gutter:stable}
+.journal-records-button{display:flex;justify-content:space-between;align-items:center;width:100%;min-height:44px;text-align:left;border:0;border-top:1px solid var(--line);background:transparent;color:var(--muted);font:inherit;font-size:13px;margin-top:10px;padding:10px 0;cursor:pointer}
+.journal-records-button:hover{color:var(--ink)}
+.journal-grid.list .journal-records-button{margin-left:140px;width:calc(100% - 140px)}
+.journal-drawer{position:fixed;inset:0 0 0 auto;margin:0;width:min(520px,100vw);height:100dvh;max-height:100dvh;max-width:100vw;border-radius:20px 0 0 20px;animation:journal-drawer-in .22s ease-out}
+.journal-drawer-header{position:sticky;top:0;z-index:1;display:flex;align-items:flex-start;gap:16px;justify-content:space-between;padding:28px 24px 20px;background:var(--surface);border-bottom:1px solid var(--line)}
+.journal-drawer-header h2{font-size:25px;line-height:1.2;margin:8px 0 0;overflow-wrap:anywhere}
+.journal-drawer-header>button{font-size:28px;min-width:44px;min-height:44px;padding:0;flex-shrink:0}
+.journal-drawer-list{padding:4px 24px 24px}
+.journal-drawer-entry{padding:18px 0;border-bottom:1px solid var(--line)}
+.episode-row{display:grid;grid-template-columns:100px minmax(0,1fr) 16px;gap:14px;align-items:center;width:100%;text-align:left;border:0;background:none;color:var(--ink);padding:0;cursor:pointer}
+.episode-row>.artwork{width:100%;aspect-ratio:16/9;height:auto;border-radius:8px;overflow:hidden}
+.episode-row strong{display:block;font-size:16px;font-weight:550;line-height:1.3}
+.episode-row small{display:block;color:var(--muted);font-size:13px;line-height:1.5;margin-top:3px}
+.drawer-records{margin-left:114px;color:var(--muted);font-size:12px}
+.drawer-records summary{cursor:pointer;padding:12px 0;min-height:44px}
+.drawer-records button{display:flex;justify-content:space-between;width:100%;min-height:44px;gap:12px;background:none;border:0;color:var(--ink);font:inherit;text-align:left;cursor:pointer}
+@keyframes journal-drawer-in{from{transform:translateX(24px);opacity:0}to{transform:none;opacity:1}}
+@media(max-width:760px){.journal-grid.list .journal-records-button{margin-left:102px;width:calc(100% - 102px)}.journal-drawer{inset:auto 0 0;margin:0;width:100%;height:auto;max-height:85dvh;border-radius:20px 20px 0 0;animation-name:journal-sheet-in}.journal-drawer-header{padding:20px 18px 16px}.journal-drawer-list{padding:0 18px max(20px,env(safe-area-inset-bottom))}.episode-row{grid-template-columns:80px minmax(0,1fr) 12px;gap:12px}.drawer-records{margin-left:92px}}
+@keyframes journal-sheet-in{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+@media(prefers-reduced-motion:reduce){.journal-drawer{animation:none}}
+
+/* Calm, image-led dashboard refinements. */
+:root{--muted:#aebaca}
+.view-options{position:relative;font-size:13px;z-index:5}
+.view-options>summary{list-style:none;cursor:pointer;border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-height:40px;color:var(--muted)}
+.view-options>summary::-webkit-details-marker{display:none}
+.view-options[open]>summary{color:var(--ink);border-color:var(--copper)}
+.view-options>div{position:absolute;right:0;top:calc(100% + 8px);padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:12px;min-width:280px}
+.view-options .grouping-control{display:grid;gap:10px}.view-options .grouping-control select{width:100%}
+.observatory-heading{margin-block:14px 20px}.observatory-heading h1{font-size:26px}
+.galaxy-section .sphere-canvas{max-height:400px}.sphere-label text{font-size:14px;font-weight:550}.sphere-label .sphere-label-count{font-size:11px;font-weight:400}
+.galaxy-inspector{height:240px;min-height:240px;overflow:hidden}.galaxy-inspector-heading{height:88px;min-height:88px;gap:4px;margin-bottom:10px}.galaxy-inspector-heading h3{font-size:20px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.galaxy-inspector .galaxy-title-list{height:122px;min-height:122px;max-height:122px;overflow:auto}
+.galaxy-preview-record{display:grid;grid-template-columns:112px minmax(0,1fr);gap:14px;align-items:center;padding:8px 0}
+.galaxy-preview-record>.artwork{width:112px;height:70px;border-radius:8px;overflow:hidden}.galaxy-preview-record strong{display:block;font-size:15px;font-weight:550;line-height:1.35}.galaxy-preview-record small{display:block;color:var(--muted);font-size:13px;margin-top:4px}.galaxy-preview-record .text-button{display:block;padding:8px 0;min-height:36px;font-size:13px}
+.artwork-fallback{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;background:#0b111a;color:#b8c5d6;text-align:center;padding:20px;height:100%;width:100%}.artwork-fallback strong{font:550 17px var(--font-ui);max-width:24ch}.fallback-orbit{font-size:48px;font-weight:300;color:var(--copper)}.hero-feature .artwork-fallback{justify-content:flex-start;padding-top:32px}.hero-feature .artwork-fallback strong{display:none}
+.card-copy>span,.card-copy small,.galaxy-summary,.chart-caption{font-size:13px}.micro{font-size:11px;letter-spacing:.4px}
+.review-heading{margin-top:12px;margin-bottom:12px}.review-heading h1{font-size:36px}.review-context{margin-bottom:10px}.review-highlights{padding:12px 0 14px}.review-highlights .review-totals strong{font-size:28px}.review-totals span{margin-top:3px;font-size:13px}.review-workspace{margin-top:22px;gap:26px}
+@media(min-width:1000px){.review-workspace .review-browse{grid-template-columns:minmax(180px,1.4fr) minmax(130px,1fr) minmax(130px,1fr);gap:10px;margin:10px 0 16px}.review-workspace .review-search{grid-column:auto}}
+@media(max-width:760px){.view-options>div{min-width:250px}.galaxy-preview-record{grid-template-columns:88px minmax(0,1fr);gap:12px}.galaxy-preview-record>.artwork{width:88px;height:58px}.review-heading h1{font-size:30px}.galaxy-inspector{height:250px;min-height:250px}}
+
+/* Persistent decorative sky; all input stays with the actual dashboard. */
+.ambient-sky{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0;transition:opacity .5s;background:#04070c}
+.ambient-sky.is-visible{opacity:1}.ambient-sky canvas{display:block;width:100%;height:100%}
+.ambient-sky:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#06090e33,#06090e70 35%,#06090e22)}
+.app-shell{position:relative;z-index:1}.topbar,.utility-row,.card-copy,.review-heading,.chart-toolbar{background:#06090ed9}
+.journal-records-button,.journal-date{background:#06090ebd}.traffic-chart{background:#06090ee8;border-radius:12px}
+@media(prefers-reduced-motion:reduce){.ambient-sky{transition:none}}
+
+/* Let imagery and the sky lead; headings and controls recede. */
+.observatory-heading{margin:10px 0 18px}.observatory-heading h1{font-size:20px;font-weight:450;letter-spacing:-.015em;color:var(--muted)}
+.section-heading h2,.galaxy-section .section-heading h2,.review-workspace .review-entries h2{font-size:19px;font-weight:500;letter-spacing:-.015em}
+.journal:not(.compact)>.section-heading h1,.traffic:not(.compact)>.section-heading h1,.connections h1{font-size:25px;font-weight:500;padding-top:10px}
+.review-heading h1{font-size:30px;font-weight:500}.review-heading h1 em{font-weight:400;color:var(--muted)}
+.journal:not(.compact) .journal-date{font-size:23px;font-weight:450}.hero .journal{margin-top:22px}
+.constellation.galaxy-section{background:transparent;border:0;box-shadow:none;border-radius:0;padding:16px 20px;outline:0}
+.galaxy-section .section-heading{margin-bottom:4px}.galaxy-section .galaxy-toolbar{border-bottom:0;margin-bottom:0}.galaxy-section .galaxy-actions .text-button{background:transparent;color:var(--muted);font-size:12px;padding:6px 8px}
+.galaxy-section .section-heading>.text-button{color:var(--muted);font-size:12px}.galaxy-section .text-button:hover{color:var(--ink)}
+.galaxy-summary{color:var(--muted);font-size:12px}.galaxy-inspector{border-top:1px solid #ffffff0b}.galaxy-inspector-heading h3{font-size:18px;font-weight:500}
+.galaxy-dialog{background:#06090ef5}.galaxy-dialog .constellation{padding:12px}
+.utility-row,.topbar{background:transparent}.utility-row{min-height:44px;margin-bottom:8px}
+.view-controls{gap:8px}.global-filters{gap:6px}.global-filters label{border:0!important;padding:0!important}
+.global-filters select,.view-options>summary{background:transparent;border:1px solid transparent;border-radius:6px;min-height:40px;padding:8px 10px;font-size:13px;color:var(--muted);box-shadow:none}
+.global-filters select:hover,.view-options>summary:hover{background:#ffffff05;color:var(--ink)}
+.view-options[open]>summary{border-color:#ffffff14;background:#ffffff05;color:var(--ink)}
+.global-filters select:focus-visible,.view-options>summary:focus-visible{outline:2px solid var(--copper);outline-offset:2px}
+.view-options>div{background:var(--surface);border-color:var(--line)}
+@media(max-width:760px){.constellation.galaxy-section{padding:16px 0}.observatory-heading h1{font-size:19px}.section-heading h2,.galaxy-section .section-heading h2{font-size:19px}.review-heading h1{font-size:28px}.global-filters select,.view-options>summary{min-height:44px;padding:8px}.journal:not(.compact)>.section-heading h1,.traffic:not(.compact)>.section-heading h1{font-size:24px}}
+
+/* More visible sky, with a slightly smaller cinematic feature. */
+.hero-feature{height:270px;border-radius:8px}.review-feature{border-radius:8px}
+.journal-card>.artwork,.review-collection .artwork{border-radius:7px;aspect-ratio:16/9}
+.ambient-sky:after{background:linear-gradient(90deg,#06090e18,#06090e40 35%,#06090e08)}
+@media(max-width:760px){.hero-feature{height:230px}}
+
+/* Align the unboxed home columns on a shared outer grid. */
+.observatory-top{grid-template-columns:minmax(0,1.2fr) minmax(340px,1fr);gap:32px;align-items:start}
+.observatory-top>.constellation.galaxy-section{padding:0;margin:0;width:100%;min-width:0}
+.observatory-top>.constellation>.section-heading{min-height:32px;height:32px;align-items:flex-start;margin:0 0 8px}
+.observatory-top>.constellation>.section-heading h2{margin:0;line-height:32px}
+.observatory-top>.constellation>.section-heading>.text-button{padding:0;min-height:32px;line-height:32px}
+.observatory-top .galaxy-toolbar{min-height:40px;padding:0;margin:0 0 8px;align-items:center}
+.observatory-top .galaxy-toolbar .galaxy-actions{margin:0}
+.observatory-top .sphere-canvas{height:350px;min-height:0;max-height:350px;width:100%}
+.hero .journal{margin-top:24px}.hero .journal .section-heading{height:32px;min-height:32px;align-items:center;margin-bottom:12px}.hero .journal .section-heading h2{font-size:19px;line-height:1.25;margin:0}.hero .journal .section-heading .text-button{min-height:32px;padding:0}
+.hero .journal-grid{gap:20px;align-items:start}.hero .journal-card{width:100%}
+@media(max-width:760px){.observatory-top{display:flex;flex-direction:column;gap:28px}.observatory-top>.constellation.galaxy-section{padding:0}.observatory-top .sphere-canvas{height:320px;max-height:320px}.hero .journal{margin-top:20px}}
+
+/* Dedicated constellation: a spacious sky and a stable preview. */
+.observatory-top{display:block}
+.observatory-top>.hero{width:100%}
+.observatory-top .hero-feature{height:clamp(260px,30vw,390px)}
+.constellation-page.constellation{padding:0;border:0;background:transparent}
+.constellation-page .section-heading{margin:6px 0 8px}
+.constellation-page h1{font-size:24px;font-weight:500;margin:0}
+.constellation-page .galaxy-toolbar{margin:0 0 20px;padding:0;min-height:32px}
+.constellation-workspace{display:grid;grid-template-columns:minmax(0,1fr) 310px;min-height:580px;gap:28px;align-items:stretch}
+.constellation-stage{position:relative;min-width:0;overflow:hidden;background:#030609;border-radius:12px}
+.constellation-page .galaxy-sphere{height:100%;min-height:580px}
+.constellation-page .sphere-canvas{display:block;width:100%;height:clamp(580px,65vh,760px);max-height:none;min-height:0}
+.constellation-page .galaxy-zoom{top:18px;right:18px;z-index:1}
+.constellation-page .galaxy-inspector{height:auto;min-width:0;border-top:0;border-left:1px solid #202831;padding:16px 0 16px 24px;margin:0;overflow:hidden}
+.constellation-page .galaxy-inspector-heading{height:auto;min-height:100px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:0 0 22px}
+.constellation-page .galaxy-title-heading{min-width:0;width:100%}
+.constellation-page .galaxy-title-heading h3{font-size:24px;line-height:1.2;white-space:normal;overflow:visible;margin:8px 0 0}
+.constellation-page .galaxy-title-list{height:auto;max-height:480px;overflow-y:auto;padding:0}
+.constellation-page .galaxy-title-list>button{padding:12px 0;gap:12px;border-radius:0;border-bottom:1px solid #1c2530}
+.constellation-page .galaxy-title-list>button .artwork{width:72px;height:48px;flex-shrink:0}
+.constellation-page .galaxy-preview{max-height:none;overflow:visible}
+.constellation-page .galaxy-preview-record{display:flex;flex-direction:column;align-items:stretch;gap:18px;padding:0}
+.constellation-page .galaxy-preview-record .artwork{width:100%;height:auto;aspect-ratio:16/10;border-radius:8px;flex:none}
+.constellation-page .galaxy-preview-record>div:not(.artwork){display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.constellation-page .galaxy-preview-record strong{font-size:16px;line-height:1.5;font-weight:500;white-space:normal}
+.constellation-page .galaxy-preview-record small{font-size:13px}
+.constellation-page .galaxy-breakdown{padding:32px;max-height:none}
+.constellation-page .galaxy-summary{margin:0}
+@media(max-width:900px){
+ .constellation-workspace{grid-template-columns:minmax(0,1fr) 260px;gap:20px;min-height:460px}
+ .constellation-page .galaxy-sphere{min-height:460px}
+ .constellation-page .sphere-canvas{height:460px}
+ .constellation-page .galaxy-inspector{padding-left:20px}
+}
+@media(max-width:680px){
+ .constellation-workspace{grid-template-columns:1fr;gap:20px;min-height:0}
+ .constellation-page .galaxy-sphere{min-height:360px}
+ .constellation-page .sphere-canvas{height:390px}
+ .constellation-page .galaxy-inspector{border-left:0;border-top:1px solid #202831;padding:20px 0 0}
+ .constellation-page .galaxy-inspector-heading{min-height:0;padding-bottom:20px}
+ .constellation-page .galaxy-preview-record{display:grid;grid-template-columns:minmax(110px,38%) minmax(0,1fr);gap:16px}
+ .constellation-page .galaxy-title-list{max-height:340px}
+ .constellation-page .galaxy-preview{max-height:none}
+ .constellation-page .galaxy-title-heading h3{font-size:22px}
+}
+/* Edge-to-edge star atlas with artwork anchored to projected stars. */
+.app-shell.star-map-shell{max-width:none;padding:0 28px}
+.star-map-shell footer{display:none}
+.star-map-shell .constellation-page .section-heading{margin:0}
+.star-map-shell .constellation-page h1{font-size:19px}
+.star-map-shell .constellation-page .galaxy-toolbar{margin-bottom:8px}
+.star-map-shell .constellation-workspace{display:block;min-height:0}
+.star-map-shell .constellation-stage{background:#030609;border-radius:0;margin:0 -28px}
+.star-map-shell .constellation-page .galaxy-sphere{min-height:520px;height:calc(100dvh - 205px);position:relative}
+.star-map-shell .constellation-page .sphere-canvas{height:100%;min-height:520px;max-height:none}
+.star-callouts{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.star-callout{position:absolute;pointer-events:auto;background:#080d14;border:1px solid #293542;border-radius:6px;overflow:hidden;box-shadow:0 8px 24px #0006}
+.star-callout.is-selected{border-color:#c7ad83}
+.star-poster{display:block;width:100%;padding:0;border:0;background:none;text-align:left;color:var(--ink)}
+.star-poster .artwork{width:100%;height:116px;border-radius:0;aspect-ratio:auto}
+.star-poster .artwork img{object-fit:cover}
+.star-poster>span{display:block;padding:8px 9px 2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;font-weight:500}
+.star-open{display:flex;justify-content:space-between;width:100%;padding:5px 9px 9px;border:0;background:none;color:#acb9c8;font-size:12px;text-align:left}
+.star-open:hover,.star-poster:hover>span{color:#e3c89d}
+.star-callout:focus-within{outline:2px solid #dfc59b;outline-offset:2px}
+.star-map-shell .sphere-label text{font-size:12px}
+.star-map-shell .sphere-label .sphere-label-count{font-size:10px}
+@media(max-width:680px){
+ .app-shell.star-map-shell{padding:0 18px}
+ .star-map-shell .constellation-stage{margin:0 -18px}
+ .star-map-shell .constellation-page .galaxy-sphere{height:calc(100dvh - 220px);min-height:480px}
+ .star-map-shell .constellation-page .sphere-canvas{min-height:480px}
+ .star-poster .artwork{height:94px}
+ .star-map-shell .galaxy-toolbar{gap:8px}
+}
+
+/* Home: compact viewing spread above the complete traffic picture. */
+.observatory-home .observatory-heading{margin:8px 0 18px}
+.observatory-home .observatory-heading h1{font-size:20px}
+.observatory-home .observatory-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:28px;align-items:start;margin-bottom:28px}
+.observatory-home .hero-feature{height:280px;min-height:0}
+.observatory-home .feature-copy{padding:20px}
+.observatory-home .feature-copy h2{font-size:29px;line-height:1.15;margin:8px 0}
+.observatory-home .feature-copy p{font-size:13px;margin:6px 0 14px}
+.observatory-home .progress-line{margin-top:16px}
+.observatory-home .journal{margin:0;padding:0;border:0}
+.observatory-home .journal>.section-heading{height:28px;min-height:28px;margin:0 0 12px}
+.observatory-home .section-heading h2{font-size:18px;font-weight:500}
+.observatory-home .journal-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.observatory-home .journal-card>.artwork{height:132px;aspect-ratio:16/9}
+.observatory-home .card-copy{padding:10px 0 0}
+.observatory-home .card-copy h3{font-size:17px;line-height:1.3;margin:0 0 6px}
+.observatory-home .card-copy>span,.observatory-home .card-copy small{font-size:12px;line-height:1.4;margin:4px 0}
+.observatory-home .journal-records-button{font-size:11px;padding:8px 0;min-height:32px}
+.observatory-home .traffic{display:grid;grid-template-columns:minmax(0,2fr) minmax(240px,1fr);column-gap:32px;row-gap:12px;padding-top:22px;margin:0;border-top:1px solid #ffffff12}
+.observatory-home .traffic>.section-heading{grid-column:1/-1;margin:0}
+.observatory-home .traffic-layout{margin:0;gap:4px;min-width:0}
+.observatory-home .traffic .metric-strip{gap:28px;margin:0}
+.observatory-home .traffic .metric-strip strong,.observatory-home .traffic .metric-strip strong.byte-value{font-size:26px}
+.observatory-home .traffic .metric-strip>div>span{font-size:12px;margin-top:3px}
+.observatory-home .traffic .traffic-chart{padding:12px 0 0;background:transparent}
+.observatory-home .chart-toolbar{gap:12px}
+.observatory-home .chart-toolbar .micro{font-size:10px;letter-spacing:0}
+.observatory-home .traffic .provider-section{display:block;padding:0 0 0 26px;margin:0;border-top:0;border-left:1px solid #ffffff12;min-width:0}
+.observatory-home .provider-section h2{font-size:15px;font-weight:500;margin:0 0 6px}
+.observatory-home .provider-section .status{font-size:11px;background:transparent;padding:0}
+.observatory-home .provider-bars{margin-top:20px}
+.observatory-home .provider-bars>div{margin-bottom:17px}
+.observatory-home .provider-label{font-size:12px;margin-bottom:7px}
+.observatory-home .traffic-chart .table-wrap{max-height:260px;overflow:auto}
+@media(max-width:900px){
+ .observatory-home .observatory-top{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:20px}
+ .observatory-home .journal-card>.artwork{height:110px}
+ .observatory-home .traffic{grid-template-columns:minmax(0,1.7fr) minmax(200px,1fr);column-gap:20px}
+ .observatory-home .traffic .provider-section{padding-left:20px}
+}
+@media(max-width:680px){
+ .observatory-home .observatory-top{grid-template-columns:1fr;gap:22px}
+ .observatory-home .hero-feature{height:220px}
+ .observatory-home .journal-card>.artwork{height:auto;aspect-ratio:16/9}
+ .observatory-home .traffic{grid-template-columns:1fr;gap:16px}
+ .observatory-home .traffic .provider-section{border-left:0;border-top:1px solid #ffffff12;padding:20px 0 0}
+ .observatory-home .feature-copy h2{font-size:25px}
+}
+.observatory-home .traffic:not(.compact)>.section-heading h2{font-size:18px;line-height:1.3;margin:0;padding:0;font-weight:500}
+.observatory-home .traffic>.section-heading{min-height:24px;padding:0;margin:0 0 4px}
+/* Genre navigation stays readable while the artwork travels in depth. */
+.genre-orbit-nav{position:absolute;top:18px;left:28px;right:170px;display:flex;gap:8px;flex-wrap:wrap;z-index:5}
+.genre-orbit-nav button{display:flex;align-items:center;gap:9px;padding:10px 13px;min-height:42px;border:1px solid #354150;border-radius:6px;background:#090f17e8;color:#d8e0e9;font-size:14px}
+.genre-orbit-nav button i{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.genre-orbit-nav button small{font-size:12px;color:#aab7c7}
+.genre-orbit-nav button:hover{background:#192432;border-color:#7c8c9e}
+.genre-orbit-nav button[aria-pressed=true]{border-color:#d3b78b;color:#f4e6d0;background:#1b2027}
+.star-callout{transition:opacity 240ms ease;will-change:transform,opacity}
+.star-map-shell .sphere-label text{font-size:16px;font-weight:550;paint-order:stroke;stroke:#030609;stroke-width:4px;stroke-linejoin:round}
+.star-map-shell .sphere-label .sphere-label-count{font-size:11px;font-weight:400}
+@media(max-width:680px){.genre-orbit-nav{left:16px;right:16px;top:12px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px}.genre-orbit-nav button{flex-shrink:0;font-size:13px;padding:8px 10px}.star-map-shell .constellation-page .galaxy-zoom{top:68px;right:16px}.star-map-shell .sphere-label text{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.star-callout,.star-leaders path{transition:none!important}}
+/* The sky stays edge-free, including after pointer focus. */
+.constellation-page .constellation-stage,.constellation-page .sphere-canvas{border:0;box-shadow:none}
+.constellation-page .sphere-canvas:focus{outline:none}
+/* Clear logos float on the sky; artwork unfolds only on intent. */
+.star-callout.logo-callout{background:none;border:0;border-radius:0;box-shadow:none;overflow:visible}
+.star-callout.logo-callout:hover,.star-callout.logo-callout:focus-within{z-index:500!important}
+.star-logo{display:flex;align-items:center;justify-content:center;width:100%;height:64px;padding:8px;background:transparent;border:0;color:#f2eee5;text-align:center}
+.star-logo img{display:block;max-width:100%;max-height:48px;object-fit:contain;filter:drop-shadow(0 3px 5px #000)}
+.star-logo>span{font-size:18px;font-weight:550;line-height:1.15;text-wrap:balance;text-shadow:0 2px 6px #000}
+.genre-orbit-nav{gap:4px}
+.genre-orbit-nav button{border:0;border-bottom:2px solid transparent;border-radius:0;background:transparent;padding:10px 12px;color:#aebdce}
+.genre-orbit-nav button:hover{background:#ffffff05;color:#f2eee5}
+.genre-orbit-nav button[aria-pressed=true]{border-color:#cbb18c;background:transparent;color:#f2eee5}
+.genre-orbit-nav button small{opacity:.65;font-size:11px}
+/* Map and inspector share space; neither covers the other. */
+.star-map-shell .constellation-workspace.has-detail-panel{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:0;align-items:start;margin:0 -28px}
+.star-map-shell .has-detail-panel .constellation-stage{margin:0;min-width:0}
+.sky-detail-panel{min-width:0;height:calc(100dvh - 205px);min-height:520px;overflow-y:auto;overscroll-behavior:contain;padding:0 22px 24px;border-left:1px solid #26313d;background:#080d13;scrollbar-width:thin;scrollbar-color:#344151 transparent}
+.sky-panel-header{display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#080d13;z-index:1;padding:10px 0;border-bottom:1px solid #202a34;margin-bottom:22px}
+.sky-panel-header .text-button{font-size:12px;padding:8px 0;min-height:40px}
+.sky-panel-header button:last-child{font-size:25px;width:40px}
+.sky-title-intro{display:grid;grid-template-columns:100px minmax(0,1fr);gap:16px;align-items:center}
+.sky-title-intro>.artwork{width:100%;aspect-ratio:2/3;border-radius:6px;overflow:hidden}
+.sky-detail-panel h2{font-size:21px;line-height:1.2;margin:0 0 10px;overflow-wrap:anywhere}
+.sky-detail-panel p,.sky-title-intro span{font-size:12px;line-height:1.6;color:#aebdce;margin:5px 0}
+.sky-detail-panel h3{font-size:14px;line-height:1.4;font-weight:500;margin:0 0 10px}
+.sky-record-detail{padding:24px 0;border-bottom:1px solid #202a34}
+.sky-position{display:flex;justify-content:space-between;gap:12px;font-size:11px;color:#b4c0ce;margin:18px 0 8px;font-variant-numeric:tabular-nums}
+.sky-record-detail progress{display:block;width:100%;height:3px}
+.sky-record-detail>small{display:block;font-size:11px;color:#aebdce;margin-top:10px}
+.sky-panel-entries{padding-top:22px}
+.sky-panel-entries>button,.sky-genre-list>button{display:flex;align-items:center;text-align:left;width:100%;gap:12px;padding:12px 0;background:none;border:0;border-bottom:1px solid #202a34;color:var(--ink);border-radius:0}
+.sky-panel-entries>button:hover,.sky-genre-list>button:hover{background:#ffffff05}
+.sky-panel-entries>button[aria-pressed=true]{color:#dfc398}
+.sky-panel-entries .artwork{width:64px;height:42px;border-radius:4px;flex-shrink:0}
+.sky-panel-entries button>span,.sky-genre-list button>span:first-of-type{min-width:0;flex:1}
+.sky-detail-panel button strong{display:block;font-size:13px;line-height:1.4;font-weight:500}
+.sky-detail-panel button small{display:block;font-size:11px;color:#aebdce;margin-top:5px}
+.sky-genre-heading{padding:0 0 14px}
+.sky-genre-list .artwork{width:42px;height:62px;flex-shrink:0;border-radius:4px}
+.has-detail-panel .genre-orbit-nav{right:140px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin}
+.has-detail-panel .genre-orbit-nav button{white-space:nowrap;flex-shrink:0}
+@media(max-width:900px){
+ .star-map-shell .constellation-workspace.has-detail-panel{grid-template-columns:minmax(0,1fr) 290px}
+ .sky-detail-panel{padding-left:16px;padding-right:16px}
+ .sky-title-intro{grid-template-columns:80px minmax(0,1fr);gap:12px}
+}
+@media(max-width:680px){
+ .star-map-shell .constellation-workspace.has-detail-panel{grid-template-columns:1fr;margin:0 -18px}
+ .sky-detail-panel{height:auto;min-height:0;max-height:480px;border-left:0;border-top:1px solid #26313d;padding:0 20px 24px}
+ .star-map-shell .has-detail-panel .galaxy-sphere,.star-map-shell .has-detail-panel .sphere-canvas{height:420px;min-height:420px}
+ .has-detail-panel .genre-orbit-nav{right:16px}
+}
+
+/* Clear logos remain part of the sky; artwork is a single quiet hover preview. */
+.star-callout.logo-callout:focus-within{outline:none}
+.star-logo:focus{outline:none}
+.star-logo:focus-visible{outline:1px solid #cbb58d;outline-offset:4px;border-radius:6px}
+.star-poster-preview{position:absolute;z-index:600;pointer-events:none;animation:poster-arrive 220ms cubic-bezier(.2,.8,.2,1) both}
+.star-poster-preview .artwork{display:block;width:100%;height:auto;aspect-ratio:2/3;border-radius:6px;overflow:hidden;box-shadow:0 8px 28px #0009}
+@keyframes poster-arrive{from{opacity:0;transform:translateY(5px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(prefers-reduced-motion:reduce){.star-poster-preview{animation:none}}
+
+/* Inspection stays calm while the surrounding sky recedes. */
+.sphere-star{transition:opacity 250ms ease}
+.sphere-label text:first-child{font-size:18px;font-weight:550;paint-order:stroke;stroke:#030609;stroke-width:3px;stroke-linejoin:round}
+.sky-title-intro{grid-template-columns:88px minmax(0,1fr);gap:18px;padding:4px 0 20px;border-bottom:1px solid #ffffff0d}
+.sky-detail-logo{display:flex;align-items:center;min-height:44px;margin-bottom:14px}
+.sky-detail-logo img{width:100%;max-height:70px;object-fit:contain;object-position:left center}
+.sky-detail-logo>span{font-size:22px;line-height:1.2;font-weight:550}
+.sky-fallback-heading{display:none}
+.sky-record-detail{padding:20px 0}
+.sky-panel-entries{padding-top:18px}
+.sky-panel-entries>button{padding:10px 0;gap:10px}
+.sky-panel-entries .artwork{width:56px;height:38px}
+@media(prefers-reduced-motion:reduce){.sphere-star{transition:none}}
+
+.genre-nebula{transition:opacity 400ms ease}
+@media(prefers-reduced-motion:reduce){.genre-nebula{transition:none}}
+
+.review-calendar-controls{display:grid;grid-template-columns:40px 40px minmax(0,1fr) minmax(0,1.4fr);gap:8px;align-items:end;margin:14px 0 12px}
+.review-calendar-controls label{display:flex;flex-direction:column;gap:5px;font-size:11px;color:var(--muted);min-width:0}
+.review-calendar-controls select{width:100%;min-width:0;min-height:40px;padding:6px 8px;font-size:13px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink)}
+.review-calendar-controls .period-step{width:40px;min-height:40px;padding:6px;border:1px solid var(--line);font-size:18px}
+.review-calendar-controls .period-step:disabled{opacity:.3;cursor:default}
+.review-calendar-controls:has(label:only-of-type){grid-template-columns:40px 40px minmax(0,1fr)}
+
+/* Review: compact framing, artwork first, local calendar exploration. */
+.review-page{padding-top:4px}
+.review-heading{margin:0 0 4px;align-items:center}
+.review-heading h1{margin:0;font-size:26px;line-height:1.2}
+.review-heading h1 em{font-style:normal}
+.review-heading .review-controls{margin:0}
+.review-heading .review-controls label{flex-direction:row;align-items:center;gap:8px}
+.review-context{margin:0 0 8px;font-size:11px}
+.review-highlights{padding:10px 0;margin:0}
+.review-highlights .review-totals{display:flex;flex-wrap:wrap;gap:12px 30px;max-width:none}
+.review-totals>div{display:flex;align-items:baseline;gap:7px}
+.review-highlights .review-totals strong{font-size:23px;line-height:1.25}
+.review-totals span{font-size:12px;margin:0}
+.review-workspace{margin-top:18px}
+.review-filter-disclosure{margin:0 0 12px;border:0}
+.review-filter-disclosure>summary{display:list-item;list-style: none;width:fit-content;cursor:pointer;font-size:12px;color:var(--muted);padding:7px 11px;min-height:34px;border:1px solid var(--line);border-radius:6px}
+.review-filter-disclosure>summary::before{content:'＋';margin-right:6px}
+.review-filter-disclosure[open]>summary::before{content:'−'}
+.review-activity .genre-mix{margin-top:22px;padding-top:18px}
+.review-activity .genre-mix .section-heading{flex-wrap:wrap;gap:4px}
+.review-activity .genre-mix h2{font-size:16px}
+.review-activity .genre-mix-legend{display:grid;grid-template-columns:1fr;gap:2px}
+.review-activity .genre-mix-legend button{min-width:0;padding:7px 0}
+.review-year .review-workspace{grid-template-columns:minmax(320px,420px) minmax(0,1fr)}
+.review-year .review-month-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.review-year .review-month-grid button{position:relative;isolation:isolate;overflow:hidden;min-height:115px;justify-content:flex-end;gap:2px;padding:10px;border-radius:7px;background:#101720!important}
+.review-year .review-month-grid .artwork{position:absolute;inset:0;z-index:-2;width:100%;height:100%}
+.review-year .review-month-grid button::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#03060bee,transparent 150%)}
+.review-year .review-month-grid button>span{font-size:13px;font-weight:550;color:#fff}
+.review-year .review-month-grid button>strong{font:20px var(--font-ui);color:#fff}
+.review-year .review-month-grid button>small{font-size:10px;color:#c3cbd4}
+.review-year .review-month-grid button:disabled{opacity:.3}
+.review-year .review-month-grid button[aria-pressed=true]{outline:2px solid var(--copper);outline-offset:1px}
+@media(max-width:760px){.review-year .review-workspace{grid-template-columns:1fr}.review-heading{display:flex}.review-highlights .review-totals{gap:8px 18px}.review-totals>div{gap:5px}.review-highlights .review-totals strong{font-size:21px}.review-totals span{font-size:11px}.review-year .review-month-grid button{min-height:110px}}
+
+/* Journal timeline: quiet tools, complete days, one action per card. */
+.journal-toolbar{display:flex;align-items:center;gap:10px;margin:16px 0 12px}
+.journal-search{flex:1;max-width:380px;min-width:0}
+.journal-search input{width:100%;min-height:40px;background:var(--bg);border:1px solid var(--line);border-radius:7px;padding:8px 12px;color:var(--ink);font:inherit;font-size:13px}
+.journal-filter-toggle,.journal-layout-toggle button{min-height:40px;border:1px solid var(--line);border-radius:7px;padding:8px 12px;background:transparent;color:var(--muted);font-size:13px}
+.journal-layout-toggle{display:flex;gap:4px;margin-left:auto}
+.journal-layout-toggle button{width:40px;padding:10px}
+.journal-layout-toggle button[aria-pressed=true]{color:var(--ink);background:#ffffff09;border-color:#cbb58d66}
+.journal-layout-toggle svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.3}
+.journal-filter-panel{display:flex;align-items:end;gap:16px;padding:4px 0 18px}
+.journal-filter-panel label{display:flex;flex-direction:column;gap:6px;color:var(--muted);font-size:12px}
+.journal-filter-panel select{min-height:40px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:6px 10px}
+.journal.journal-timeline .journal-date{font-size:18px;gap:10px;margin:10px 0 0;padding:10px 0;border-bottom:1px solid #ffffff10;background:none}
+.journal-date small{margin-left:auto;color:var(--muted);font-size:11px;font-weight:400}
+.journal-timeline .journal-grid{row-gap:20px}
+.journal-timeline .journal-card .artwork{aspect-ratio:16/9;height:auto;overflow:hidden}
+.journal-timeline .card-copy h3{font-size:18px;margin:10px 0 4px}
+.card-copy .journal-status{display:inline-block;width:fit-content;border:1px solid #ffffff13;border-radius:4px;font-size:10px;line-height:1.4;padding:2px 6px;margin-top:8px;color:#bfc9d5}
+.card-copy .journal-status.is-watched{color:#a7b99e;border-color:#a7b99e22}
+.card-copy .journal-activity-hint{font-size:11px;color:var(--muted);margin-top:9px}
+.journal-grid.list .card-copy h3{margin-top:0}
+.journal-load-more{display:flex;justify-content:center;margin:28px 0}
+.journal-load-more .load-more{margin:0;width:auto}
+.journal-load-more span{color:var(--muted)}
+@media(max-width:600px){.journal-toolbar{gap:6px;flex-wrap:wrap}.journal-search{max-width:none;flex-basis:calc(100% - 100px)}.journal-layout-toggle{margin-left:0}.journal-filter-panel{flex-wrap:wrap;gap:10px}.journal-filter-panel label{flex:1;min-width:120px}.journal.journal-timeline .journal-date{font-size:17px}.journal-timeline .card-copy h3{font-size:17px}}
+
+/* Shared vertical rhythm and a single, overflow-safe genre rail. */
+.utility-row{min-height:40px;margin-bottom:4px;gap:10px}
+.section-heading{margin-bottom:10px}
+.section-heading h1,.section-heading h2{margin-top:0;margin-bottom:0}
+.journal:not(.compact){padding-top:12px}
+.journal-toolbar{margin-top:10px;margin-bottom:8px}
+.review-workspace{margin-top:14px}
+.review-calendar-controls{margin-top:10px;margin-bottom:8px}
+.star-map-shell .constellation-page{padding-top:4px}
+.star-map-shell .constellation-page .section-heading{min-height:26px;margin:0}
+.star-map-shell .constellation-page .galaxy-toolbar{padding:0;margin:0;border:0;min-height:34px}
+.star-map-shell .galaxy-actions .text-button{min-height:34px}
+.star-map-shell .constellation-page .sphere-canvas{margin:0}
+.genre-orbit-nav,.has-detail-panel .genre-orbit-nav{top:10px;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;scrollbar-color:#64758b66 transparent;padding-bottom:4px;right:150px}
+.genre-orbit-nav button{flex-shrink:0;white-space:nowrap;min-height:38px;padding:7px 10px}
+.star-map-shell .constellation-page .galaxy-zoom{top:10px}
+.genre-jump{position:absolute;top:59px;left:28px;z-index:6;max-width:210px;min-height:34px;padding:5px 10px;background:#080e16;color:#bdc9d9;border:1px solid #ffffff1a;border-radius:6px;font:12px var(--font-ui)}
+@media(max-width:680px){.genre-orbit-nav,.has-detail-panel .genre-orbit-nav{left:16px;right:16px}.star-map-shell .constellation-page .galaxy-zoom{top:62px}.genre-jump{top:62px;left:16px;max-width:calc(100% - 165px)}.galaxy-toolbar .galaxy-summary{font-size:11px}.star-map-shell .galaxy-actions .text-button{font-size:10px;padding:0 5px}}
+
+/* A continuous sky behind the journal, with dates separating days through space. */
+.journal.journal-timeline{border:0;background:transparent}
+.journal-timeline .journal-entry,
+.journal-timeline .journal-card,
+.journal-timeline .card-copy{background:transparent;box-shadow:none}
+.journal.journal-timeline .journal-date{width:fit-content;max-width:100%;flex-wrap:wrap;justify-content:flex-start;gap:8px;border:0;background:transparent;padding:0;margin:16px 0 0;line-height:1.5}
+.journal.journal-timeline .journal-date:first-child{margin-top:4px}
+.journal-timeline .journal-date small{margin-left:0;font-size:11px}
+.journal-timeline .journal-date small::before{content:'·';margin-right:8px;color:var(--muted)}
+.journal-timeline .journal-grid{row-gap:16px}
+.journal-timeline .journal-grid.list .journal-card{border:0;background:transparent}
+.journal-timeline .journal-grid.list{row-gap:4px}
+.journal-timeline .card-copy{text-shadow:0 1px 5px #03060980}
+body:has(.journal-timeline) .ambient-sky::after{background:linear-gradient(90deg,#06090e80 0%,#06090e55 60%,#06090e28 100%)}

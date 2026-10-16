@@ -7,3 +7,5 @@ import './review.test.ts';
 import './release.test.ts';
 
 import './setup.test.ts';
+
+import './orbit.test.ts';
