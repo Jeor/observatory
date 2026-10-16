@@ -109,4 +109,8 @@ For native live operation, supply `AIOM_ADMIN_KEY_FILE`, `AIOM_CONFIG_ID_FILE`, 
 
 `npm test`, `npm run build`, and `node scripts/smoke.mjs` test logic and HTTP boundaries. `sh scripts/container-smoke.sh observatory:audit` checks a built image in isolated demo mode. Verification CI performs a dependency audit and container checks. Version tags trigger a GHCR release workflow that tests amd64 and arm64 before publishing with provenance/SBOM metadata. A workflow definition is not proof of a successful remote release.
 
-`npm run release:prepare` creates an explicit allowlisted source package under ignored `releases/`. It excludes credentials, databases, personal screenshots, private reports and local debugging scripts. Review its contents before publishing. The application and first-party abstract demo artwork are MIT licensed. Dependencies retain their own licenses. Live artwork is fetched from users' providers; it is not part of the released package.
+`npm run release:prepare` creates an explicit allowlisted source package under ignored `releases/`. It excludes credentials, databases, personal screenshots, private reports and local debugging scripts. Review its contents before publishing. The application and first-party abstract demo artwork are licensed under GPLv3 only (GPL-3.0-only). Dependencies retain their own licenses. Live artwork is fetched from users' providers; it is not part of the released package.
+
+## License
+
+Copyright (c) 2026 Observatory contributors. Distributed under the GNU General Public License version 3 only. See [LICENSE](LICENSE) for the full terms.

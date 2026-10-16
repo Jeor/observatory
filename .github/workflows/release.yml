@@ -1,5 +1,6 @@
 name: Release image
 on:
+  workflow_dispatch:
   push:
     tags: ['v*']
 permissions:
@@ -31,7 +32,7 @@ jobs:
       - uses: docker/metadata-action@v5
         id: meta
         with:
-          images: ghcr.io/${{ github.repository }}
+          images: ghcr.io/jeor/observatory
           tags: |
             type=semver,pattern={{version}}
             type=sha
