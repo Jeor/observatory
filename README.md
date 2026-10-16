@@ -16,7 +16,16 @@ mkdir -p .secrets
 docker compose up --build -d
 ```
 
-Open http://127.0.0.1:8080. The default is demo mode with synthetic records and original abstract artwork. No upstream credentials or connections are needed. The image is currently built locally; published GHCR tags should only be used once a release exists.
+Open http://127.0.0.1:8080. The default is demo mode with synthetic records and original abstract artwork. No upstream credentials or connections are needed. Prebuilt Linux AMD64 and ARM64 images are published at `ghcr.io/jeor/observatory`. To use version 0.1.0 instead of building locally, add `OBSERVATORY_IMAGE=ghcr.io/jeor/observatory:0.1.0` to `.env`, then run:
+
+```sh
+docker compose pull
+docker compose up -d --no-build
+```
+
+[Release v0.1.0](https://github.com/Jeor/observatory/releases/tag/v0.1.0) · [Docker build workflow](https://github.com/Jeor/observatory/actions/workflows/release.yml)
+
+Version 0.1.0 passed both architecture smoke tests in GitHub Actions. Remote HTTPS/proxy configuration still needs validation in your deployment.
 
 ## Connect your services
 
