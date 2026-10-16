@@ -12,7 +12,7 @@ test('explicit artwork identity maps provider aliases without merging episodes',
 });
 import {Store} from '../server/data/store.ts';
 import {normalizePlaystate} from '../server/data/normalize.ts';
-test('stored alias migration retains latest progress and preserves other profiles',()=>{
+test('stored alias reconciliation retains latest progress and preserves other profiles',()=>{
  const s=new Store(':memory:');const base={profile:'one',videoId:'tvdb:123:2:4',title:'Show',episode:'S2E4',updatedAt:10,positionMs:500};
  const old=normalizePlaystate({inProgress:[base,{...base,profile:'two'}],recentlyPlayed:[]},10);s.savePlays(old);
  const fresh=normalizePlaystate({inProgress:[{...base,canonicalId:'tt12345:2:4',updatedAt:20,positionMs:800}],recentlyPlayed:[]},20);

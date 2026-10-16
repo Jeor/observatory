@@ -2,7 +2,7 @@
 # Requires existing Traefik with HTTPS websecure entrypoint and letsencrypt resolver.
 services:
   observatory:
-    image: ${OBSERVATORY_IMAGE:-observatory:local}
+    image: ${OBSERVATORY_IMAGE:-ghcr.io/jeor/observatory:latest}
     build: ..
     restart: unless-stopped
     environment:

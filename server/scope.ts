@@ -6,8 +6,8 @@ export function enforceScope(db:Store,c:Config){
   if(!url)continue;
   const scope=opaque(JSON.stringify([url,account]));const previous=db.get<string>('scope-v2:'+key);
   if(previous&&previous!==scope)throw Error('Source account changed: use a separate DATA_DIR.');
-  // Legacy databases never recorded account identity. Never silently adopt them.
-  if(!previous&&db.get('scope:'+key)&&process.env.OBSERVATORY_ADOPT_LEGACY_SCOPE!=='true')throw Error('Legacy database: confirm its account with OBSERVATORY_ADOPT_LEGACY_SCOPE=true once, or use a new DATA_DIR.');
+  // Reject stored data whose account identity cannot be verified.
+  if(!previous&&db.get('scope:'+key))throw Error('Unverified database account: use a new DATA_DIR.');
   db.set('scope-v2:'+key,scope);
  }
 }

@@ -5,7 +5,7 @@ function jsonSecret(path:string):any {try{return JSON.parse(readFileSync(path,'u
 function secret(path:string){const text=readFileSync(path,'utf8').trim();if(!text||/[\r\n]/.test(text))throw Error('Secret file is empty or contains multiple lines');return text;}
 function endpoint(raw:string,path:string){const u=new URL(raw);if(!['http:','https:'].includes(u.protocol)||u.username||u.password||u.search||u.hash||u.pathname!=='/')throw Error('Configure an origin without credentials or path');return new URL(path,u).href;}
 export function readConfig():Config {
- const mode=process.env.OBSERVATORY_MODE||process.env.AFTERGLOW_MODE||'live';if(mode!=='live'&&mode!=='demo')throw Error('Invalid mode');
+ const mode=process.env.OBSERVATORY_MODE||'live';if(mode!=='live'&&mode!=='demo')throw Error('Invalid mode');
  const c:Config={mode,port:Number(process.env.PORT||8080),host:process.env.HOST||'127.0.0.1',dataDir:process.env.DATA_DIR||'./data',timeZone:process.env.OBSERVATORY_TIMEZONE||'America/New_York'};
  new Intl.DateTimeFormat('en',{timeZone:c.timeZone}).format(0);
  if(process.env.OBSERVATORY_AUTH_FILE){const login=jsonSecret(process.env.OBSERVATORY_AUTH_FILE);if(!validLogin(login))throw Error('Dashboard login requires a username and password of at least 16 characters');c.login=login;}
