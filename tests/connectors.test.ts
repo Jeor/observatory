@@ -30,3 +30,24 @@ test('expired streams sessions refresh once and repeated 401 does not loop',asyn
  let logins=0,gets=0;const fetcher:typeof fetch=async(url)=>String(url).endsWith('/login')?(logins++,new Response('{}',{headers:{'set-cookie':'aiostreams.session=x; Path=/'}})):(gets++,new Response('{}',{status:401,headers:{'content-type':'application/json'}}));
  await assert.rejects(()=>createStreamsClient('http://localhost/api/v1/dashboard/usenet/stats',{username:'owner',password:'secret'},fetcher)(),/HTTP 401/);assert.equal(logins,2);assert.equal(gets,2);
 });
+test('expired session login redirect renews once, retries stats and keeps new cookie',async()=>{
+ let logins=0,gets=0;const cookies:string[]=[];
+ const fetcher:typeof fetch=async(url,init)=>{
+  if(String(url).endsWith('/auth/login')){logins++;return new Response('{}',{headers:{'set-cookie':`aiostreams.session=session${logins}; Max-Age=86400; Path=/`}});}
+  gets++;assert.equal(init?.redirect,'manual');cookies.push((init?.headers as Record<string,string>).cookie);
+  if(gets===2)return new Response(null,{status:302,headers:{location:'/login?next=%2Fapi%2Fv1%2Fdashboard%2Fusenet%2Fstats'}});
+  return Response.json({data:{generatedAt:10,bucketMs:3600000,throughput:[],providers:[]}});
+ };
+ const client=createStreamsClient('http://localhost/api/v1/dashboard/usenet/stats',{username:'owner',password:'secret'},fetcher);
+ await client();await client();await client();assert.equal(logins,2);assert.equal(gets,4);assert.deepEqual(cookies,['aiostreams.session=session1','aiostreams.session=session1','aiostreams.session=session2','aiostreams.session=session2']);
+});
+test('repeated login redirects do not loop, and unrelated redirects do not trigger login',async()=>{
+ for(const location of ['/login?next=private','https://other.test/login','/different','http://user:secret@localhost/login']){
+  let logins=0,gets=0;const fetcher:typeof fetch=async(url)=>{
+   if(String(url).endsWith('/auth/login')){logins++;return new Response('{}',{headers:{'set-cookie':'aiostreams.session=x; Path=/'}});}
+   gets++;return new Response(null,{status:302,headers:{location}});
+  };
+  await assert.rejects(()=>createStreamsClient('http://localhost/api/v1/dashboard/usenet/stats',{username:'owner',password:'secret'},fetcher)(),e=>!String(e).includes('secret')&&!String(e).includes('private'));
+  assert.equal(logins,location.startsWith('/login?')?2:1);assert.equal(gets,logins);
+ }
+});

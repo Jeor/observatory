@@ -1,4 +1,4 @@
-import {readJson} from './http.ts';import type {TrafficBucket,ProviderTotal} from '../../shared/contracts.ts';
+import {readJson,LoginRedirectError} from './http.ts';import type {TrafficBucket,ProviderTotal} from '../../shared/contracts.ts';
 export function normalizeTraffic(input:unknown):{buckets:TrafficBucket[];providers:ProviderTotal[];at:number}{
  const x=(input as any)?.data;
  if(!x||!Array.isArray(x.throughput)||!Array.isArray(x.providers)||!Number.isFinite(x.generatedAt)||x.bucketMs!==3600000)throw Error('Unsupported traffic response');
@@ -16,5 +16,5 @@ export function createStreamsClient(url:string,credentials:{username:string;pass
   if(!cookie)throw Error('Session unavailable');await response.body?.cancel();
   }catch(e){throw Error(e instanceof Error&&/^HTTP \d{3}$/.test(e.message)?e.message:'Authentication unavailable');}
  }
- return async(signal?:AbortSignal)=>{if(!cookie)await login(signal);try{return normalizeTraffic(await readJson(url,{cookie},{fetcher,signal}));}catch(e){if(e instanceof Error&&e.message==='HTTP 401'){cookie='';await login(signal);return normalizeTraffic(await readJson(url,{cookie},{fetcher,signal}));}throw e;}};
+ return async(signal?:AbortSignal)=>{if(!cookie)await login(signal);try{return normalizeTraffic(await readJson(url,{cookie},{fetcher,signal,detectLoginRedirect:true}));}catch(e){if(e instanceof LoginRedirectError||(e instanceof Error&&e.message==='HTTP 401')){cookie='';await login(signal);return normalizeTraffic(await readJson(url,{cookie},{fetcher,signal,detectLoginRedirect:true}));}throw e;}};
 }
